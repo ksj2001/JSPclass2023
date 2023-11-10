@@ -96,11 +96,11 @@
 						<input type="radio" name="age" value="10대" id="teenage">
 						<label for="teenage">10대</label>&nbsp;&nbsp;
 						<input type="radio" name="age" value="20대" id="twenty">
-						<label for="twenty">등산</label>&nbsp;&nbsp;
+						<label for="twenty">20대</label>&nbsp;&nbsp;
 						<input type="radio" name="age" value="30대" id="thirty">
-						<label for="thirty">영화</label>&nbsp;&nbsp;
+						<label for="thirty">30대</label>&nbsp;&nbsp;
 						<input type="radio" name="age" value="40대" id="forty">
-						<label for="forty">독서</label>&nbsp;&nbsp;
+						<label for="forty">40대</label>&nbsp;&nbsp;
 					</td>
 				</tr>
 				<tr height="50">
