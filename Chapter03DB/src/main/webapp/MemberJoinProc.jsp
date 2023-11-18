@@ -63,8 +63,10 @@
     }catch(Exception e){
     	e.printStackTrace();
     } */
+    
+    response.sendRedirect("MemberList.jsp");
 %>
-     mySQL 접속 완료
+     
 
 </body>
 </html>
