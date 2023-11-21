@@ -5,29 +5,34 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 public class MemberDAO{
-	/*
-	 * // mySQL 접속 시 필요한 멤버변수 String id = "root"; // db 아이디 String pw = "12345678";
-	 * // db 패스워드 String url =
-	 * "jdbc:mysql://localhost:3306/jspdatabase?serverTimezone=UTC"; // 접속 URL
-	 * 
-	 * Connection con; // db 접속 PreparedStatement pstmt; // 쿼리 실행 ResultSet rs; //
-	 * 쿼리 실행으로 반환받은 값을 자바에 저장
-	 * 
-	 * // getCon 메서드 생성 public void getCon() { try {
-	 * Class.forName("com.mysql.cj.jdbc.Driver"); // mysql 드라이버를 자바에 접속 // db의 아이디,
-	 * 패스워드, url을 자바에 연결한 드라이버와 연결시켜준다. con = DriverManager.getConnection(url, id,
-	 * pw); }catch(Exception e){ e.printStackTrace(); } }
-	 */
 	
-	Connection con = Connect.getCon(); // db 접속
+	Connection con ; // db 접속
     PreparedStatement pstmt; // 쿼리 실행
     ResultSet rs; // 쿼리 실행으로 반환받은 값을 자바에 저장
     
+	// ConnectionPool의 외부 자원을 가지고 오는 메서드를 만든다.
+	public void getConnect() {
+		try {
+			Context init = new InitialContext();
+			Context ex = (Context) init.lookup("java:comp/env");
+			DataSource ds = (DataSource) ex.lookup("jdbc/pool");
+			con = ds.getConnection();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
     // 한 사람의 정보만 insert하는 메서드 작성
     public void insertMember(MemberBean mbean) {
+    	getConnect();
     	try {
     		String sql = "insert into member values(?,?,?,?,?,?,?,?)";
     		pstmt = con.prepareStatement(sql);
@@ -44,14 +49,23 @@ public class MemberDAO{
         	pstmt.executeUpdate();
         	
         	// 자원 반납 : connection 종료
-        	con.close();
+        	// con.close();
     	}catch(Exception e) {
     		e.printStackTrace();
+    	}finally {
+    		try {
+    		    if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
     	}
     }
     
     // 가입한 회원의 모든 정보를 출력하는 메서드 작성
     public ArrayList<MemberBean> allMembers(){
+    	getConnect();
     	ArrayList<MemberBean> aList = new ArrayList<>(); // MemberBean이 자료형인 ArrayList 객체 생성
     	
     	try{
@@ -74,9 +88,17 @@ public class MemberDAO{
     			mb.setInfo(rs.getString(8));
     			aList.add(mb);
     		}
-    		con.close();
+    		// con.close();
     	}catch(Exception e) {
     		e.printStackTrace();
+    	}finally {
+    		try {
+    		    if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
     	}
     	
     	
@@ -86,6 +108,7 @@ public class MemberDAO{
     
     // 한 사람의 모든 정보를 출력하는 메서드
     public MemberBean memberDetail(String id) {
+    	getConnect();
     	MemberBean mb = new MemberBean();
     	
     	try {
@@ -105,11 +128,79 @@ public class MemberDAO{
     			mb.setAge(rs.getString(7));
     			mb.setInfo(rs.getString(8));
     		}
-    		con.close();
+    		// con.close();
     	}catch(Exception e) {
     		e.printStackTrace();
+    	}finally {
+    		try {
+    		    if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
     	}
     	return mb;
     }
     
+    // 회원으로 가입한 한 사람의 패스워드를 추출하는 메서드
+    public String onePassword(String id) {
+    	getConnect();
+    	String password="";
+    	try {
+    		// select문을 이용하여 아이디가 같은 패스워드를 추출한다.
+    		String sql = "select pw from member where id=?";
+    		// 위에서 받은 sql문을 실행하기 위해 connection 연결
+    		pstmt = con.prepareStatement(sql);
+    		// 실행하고 싶은 값을 세팅값으로 지정한다.(단, 자료형에 유의하자!)
+    		pstmt.setString(1, id);
+    		// sql문이 select문일 때에는 반드시 ResultSet에 담아서 java에 저장
+    		// select문은 executeQuery(), 그 이외의 insert,delete,update문은 executeUpdate()로 실행
+    		rs = pstmt.executeQuery();
+    		// rs에 담긴 값이 null이 아닐 경우, 위에서 찾은 값을 변수 password에 넣어준다.
+    		if(rs.next()) {
+    			password = rs.getString(1);
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			// 사용한 자원은 반드시 반납한다.
+    		    if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	
+    	return password;
+    	
+    }
+    
+    // 이메일과 전화번호를 수정하는 메서드를 작성
+    public void updateInfo(MemberBean mbean) {
+    	getConnect();
+    	
+    	try {
+    		
+    		String sql = "update member set email=?,tel=? where id=?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, mbean.getEmail());
+    		pstmt.setString(2, mbean.getTel());
+    		pstmt.setString(3, mbean.getId());
+    		pstmt.executeUpdate();
+    		
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    		    if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    }
 }

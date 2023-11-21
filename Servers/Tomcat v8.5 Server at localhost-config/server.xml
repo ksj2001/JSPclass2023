@@ -160,7 +160,15 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="Chapter01" path="/Chapter01" reloadable="true" source="org.eclipse.jst.jee.server:Chapter01"/><Context docBase="Example" path="/Example" reloadable="true" source="org.eclipse.jst.jee.server:Example"/><Context docBase="Chapter02" path="/Chapter02" reloadable="true" source="org.eclipse.jst.jee.server:Chapter02"/><Context docBase="Chapter03DB" path="/Chapter03DB" reloadable="true" source="org.eclipse.jst.jee.server:Chapter03DB"/></Host>
+      <Context docBase="Chapter01" path="/Chapter01" reloadable="true" source="org.eclipse.jst.jee.server:Chapter01"/>
+      <Context docBase="Example" path="/Example" reloadable="true" source="org.eclipse.jst.jee.server:Example"/>
+      <Context docBase="Chapter02" path="/Chapter02" reloadable="true" source="org.eclipse.jst.jee.server:Chapter02"/>
+      <Context docBase="Chapter03DB" path="/Chapter03DB" reloadable="true" source="org.eclipse.jst.jee.server:Chapter03DB">
+        <Resource name="jdbc/pool" auth="Container" type="javax.sql.DataSource"
+        		driverClassName="com.mysql.cj.jdbc.Driver" loginTimeout="10" maxWaite="5000"
+        		username="root" password="12345678" url="jdbc:mysql://localhost:3306/jspdatabase?serverTimezone=UTC"/>
+      </Context>
+      </Host>
     </Engine>
   </Service>
 </Server>

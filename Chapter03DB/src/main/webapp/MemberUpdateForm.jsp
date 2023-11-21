@@ -60,6 +60,8 @@
 			</tr>
 			<tr height="50">
 				<td align="center" colspan="2">
+				    <!-- 위에 있는 아이디가 input이 아니기 때문에 아이디 값을 memberUpdateProc로 떠넘겨준다. -->
+				    <input type="hidden" name="id" value="<%=mb.getId() %>">
 					<input type="submit" value="회원 수정하기">&nbsp;&nbsp;</form>
 					<button onclick="location.href='MemberList.jsp'">회원 전체보기</button>
 				</td>

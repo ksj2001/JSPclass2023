@@ -98,10 +98,11 @@
 	</div>
 	<script type="text/javascript">
 		// 비밀번호가 일치하지 않을 때에는 '비밀번호가 일치하지 않습니다' 출력
+		let id = document.getElementsByName('id');
 		let pw = document.getElementsByName('pw');
 		let pwchk = document.getElementsByName('pwchk');
 		let pwCheckDiv = document.getElementsByClassName("pwCheck");
-		pwchk[0].addEventListener("click", () =>{
+		pwchk[0].addEventListener("focusout", () =>{
 			if(pw[0].value!="" && pwchk[0].value!=""){
 				if(pw[0].value===pwchk[0].value){
 					pwCheckDiv[0].innerHTML = "비밀번호가 일치합니다.";
@@ -114,6 +115,24 @@
 				pwCheckDiv[0].innerHTML = "";
 			}
 		})
+		
+		id[0].addEventListener("focusout", () =>{
+			const regexId = /^[A-za-z0-9]{6,12}/;
+			if(!regexId.test(id[0].value)){
+				alert("아이디는 알파벳 또는 숫자를 포함하여야 하고 6~12자리 이내여야 합니다.");
+				history.go(-1);
+			}
+		})
+		pw[0].addEventListener("focusout", () =>{
+			const regexPw = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,12}$/;
+			 if(!regexPw.test(pw[0].value)){
+				alert("비밀번호는 알파벳,숫자,특수기호(!@#$%^*+=-)를 포함하여야 하고 6~12자리 이내여야 합니다.");
+				history.go(-1);
+			}
+		})
+		    
+			
+			
 	</script>
 </body>
 </html>

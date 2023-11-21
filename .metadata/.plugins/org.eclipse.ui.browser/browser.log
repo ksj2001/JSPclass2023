@@ -24,3 +24,10 @@
 11월 17, 2023 14:07:16.19 NEW SESSION
 11월 17, 2023 14:07:16.20 [15716:24804:1117/140716.198:ERROR:device_event_log_impl.cc(192)] [14:07:16.198] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
 11월 17, 2023 16:49:37.06 [15716:24804:1117/164937.060:ERROR:device_event_log_impl.cc(192)] [16:49:37.055] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+11월 21, 2023 13:53:24.46 NEW SESSION
+11월 21, 2023 13:53:24.47 [29856:23612:1121/135324.460:ERROR:device_event_log_impl.cc(192)] [13:53:24.460] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+11월 21, 2023 14:14:12.74 [22220:18648:1121/141412.748:ERROR:device_event_log_impl.cc(192)] [14:14:12.747] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+
+11월 21, 2023 17:09:41.54 NEW SESSION
+11월 21, 2023 17:09:41.56 [27228:24340:1121/170941.548:ERROR:device_event_log_impl.cc(192)] [17:09:41.548] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)

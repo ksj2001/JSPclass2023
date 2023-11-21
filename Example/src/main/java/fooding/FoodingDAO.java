@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 //import com.mysql.cj.xdevapi.Statement;
 
@@ -51,4 +52,25 @@ public class FoodingDAO {
     	}
     }
     
+    
+//  회원으로 가입한 한 사람의 아이디를 추출하는 메서드 작성
+    public String oneCheckId(String id) {
+    	String checkId = "";
+    	
+    	try {
+//    		조건이 id와 같은 아이디 추출
+    		String sql = "select id from fooding where id=?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, id);
+    		rs = pstmt.executeQuery();
+    		
+    		if(rs.next()) {
+    			checkId = rs.getString(1);
+    		}
+    		con.close();
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
+    	return checkId;
+    }
 }
