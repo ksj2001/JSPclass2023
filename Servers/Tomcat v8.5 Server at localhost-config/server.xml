@@ -164,9 +164,13 @@
       <Context docBase="Example" path="/Example" reloadable="true" source="org.eclipse.jst.jee.server:Example"/>
       <Context docBase="Chapter02" path="/Chapter02" reloadable="true" source="org.eclipse.jst.jee.server:Chapter02"/>
       <Context docBase="Chapter03DB" path="/Chapter03DB" reloadable="true" source="org.eclipse.jst.jee.server:Chapter03DB">
-        <Resource name="jdbc/pool" auth="Container" type="javax.sql.DataSource"
-        		driverClassName="com.mysql.cj.jdbc.Driver" loginTimeout="10" maxWaite="5000"
-        		username="root" password="12345678" url="jdbc:mysql://localhost:3306/jspdatabase?serverTimezone=UTC"/>
+        <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" loginTimeout="10" maxWaite="5000" name="jdbc/pool" password="12345678" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jspdatabase?serverTimezone=UTC" username="root"/>
+      </Context>
+      <Context docBase="Chapter04Session" path="/Chapter04Session" reloadable="true" source="org.eclipse.jst.jee.server:Chapter04Session">
+        <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" loginTimeout="10" maxWaite="5000" name="jdbc/pool" password="12345678" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jspdatabase?serverTimezone=UTC" username="root"/>
+      </Context>
+      <Context docBase="Fooding" path="/Fooding" reloadable="true" source="org.eclipse.jst.jee.server:Fooding">
+       <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" loginTimeout="10" maxWaite="5000" name="jdbc/pool" password="12345678" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jspdatabase?serverTimezone=UTC" username="root"/>
       </Context>
       </Host>
     </Engine>

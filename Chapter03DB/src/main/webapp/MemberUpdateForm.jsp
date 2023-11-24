@@ -48,11 +48,11 @@
 			</tr>
 			<tr height="50">
 				<td align="center" width="150">이메일</td>
-				<td width="250"><input type="email" value="<%=mb.getEmail()%>"></td>
+				<td width="250"><input type="email" name="email" value="<%=mb.getEmail()%>"></td>
 			</tr>
 			<tr height="50">
 				<td align="center" width="150">전화</td>
-				<td width="250"><input type="tel" value="<%=mb.getTel()%>"></td>
+				<td width="250"><input type="tel" name="tel" value="<%=mb.getTel()%>"></td>
 			</tr>
 			<tr height="50">
 				<td align="center" width="150">패스워드</td>
