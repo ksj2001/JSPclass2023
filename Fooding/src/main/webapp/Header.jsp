@@ -48,23 +48,36 @@
 		<div class="navi">
 			<div class="menu">
 				<ul>
+					<%if(id!=null){
+						if(id.equals("admin123")){%>
+						<li><a href="Main.jsp?changePage=FoodingMemberList.jsp">회원관리</a></li>
+						<li><a href="#">게시물관리</a></li>
+						<li><a href="#">상품관리</a></li>
+					<%  }
+					  }else{ %>
 					<li><a href="#">카테고리 전체</a></li>
 					<li><a href="#">신상품</a></li>
 					<li><a href="#">베스트</a></li>
 					<li><a href="#">세일</a></li>
 					<li><a href="#">입점브랜드</a></li>
 					<li><a href="#">푸딩콕</a></li>
+					<%} %>
 				</ul>
 			</div>
 			<div class="account">
 				<ul>
 					<%if(id==null){ %>
-					<li><a href="Main.jsp?changePage=Login.jsp">로그인</a></li>
-					<li><a href="Main.jsp?changePage=FoodingJoinForm.jsp">회원가입</a></li>
-					<%}else{ %>
-					<li><a href="#" style="cursor: default"><%=id %>님 로그인!</a></li>
-					<li><a href="Main.jsp?logout=1">로그아웃</a></li>
-					<%} %>
+						<li><a href="Main.jsp?changePage=Login.jsp">로그인</a></li>
+						<li><a href="Main.jsp?changePage=FoodingJoinForm.jsp">회원가입</a></li>
+					<%}else{
+							if(id.equals("admin123")){%>
+								<li><a href="#" style="cursor: default">관리자 로그인</a></li>
+								<li><a href="Main.jsp?logout=1">로그아웃</a></li>
+					<%		}else{%>
+								<li><a href="#" style="cursor: default"><%=id %>님 로그인!</a></li>
+								<li><a href="Main.jsp?logout=1">로그아웃</a></li>
+					<%		}
+					  }%>
 					<li><a href="#">1:1문의</a></li>
 				</ul>
 			</div>

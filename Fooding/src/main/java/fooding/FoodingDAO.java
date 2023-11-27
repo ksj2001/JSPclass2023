@@ -123,4 +123,39 @@ public class FoodingDAO {
     	}
     	return password;
     }
+    
+ // 가입한 회원의 모든 정보를 출력하는 메서드 작성
+    public ArrayList<FoodingBean> allMembers(){
+    	getCon();
+    	ArrayList<FoodingBean> aList = new ArrayList<>(); // FoodingBean이 자료형인 ArrayList 객체 생성
+    	
+    	try{
+    		String sql = "select * from fooding";
+    		pstmt = con.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+    		while(rs.next()) {
+    			FoodingBean fb = new FoodingBean(); // 빈 클래스 생성
+    			fb.setName(rs.getString(1));
+    			fb.setId(rs.getString(2));
+    			fb.setPw(rs.getString(3));
+    			fb.setTel(rs.getString(4));
+    			fb.setEmail(rs.getString(5));
+    			fb.setAddress(rs.getString(6));
+    			aList.add(fb);
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    		    if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	
+    	
+    	return aList;
+    }
 }
