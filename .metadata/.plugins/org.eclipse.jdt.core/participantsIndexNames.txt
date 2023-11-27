@@ -3,6 +3,8 @@ D:\Jsp_Project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\216709408.i
 \Fooding\src\main\java
 D:\Jsp_Project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2363003491.index
 \Chapter02\src\main\java
+D:\Jsp_Project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2268558747.index
+\ChapterBoard\src\main\java
 D:\Jsp_Project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2176534731.index
 \Example\src\main\java
 D:\Jsp_Project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2357863238.index
@@ -13,6 +15,8 @@ D:\Jsp_Project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\19025498.in
 \Chapter03DB\src\main\java
 D:\Jsp_Project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2065906729.index
 \Fooding2\src\main\java
+D:\Jsp_Project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2112114104.index
+\ChapterCookie\src\main\java
 D:\Jsp_Project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3745696231.index
 \Chapter01\src\main\java
 D:\Jsp_Project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\513639533.index

@@ -34,3 +34,17 @@
 
 11월 22, 2023 14:06:12.26 NEW SESSION
 11월 22, 2023 14:06:12.28 [26796:20160:1122/140612.265:ERROR:device_event_log_impl.cc(192)] [14:06:12.265] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+
+11월 27, 2023 14:09:50.87 NEW SESSION
+11월 27, 2023 14:09:50.88 [9008:34188:1127/140950.876:ERROR:device_event_log_impl.cc(192)] [14:09:50.876] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+11월 27, 2023 14:15:57.28 [9008:34188:1127/141557.289:ERROR:CONSOLE(1)] "This document requires 'TrustedHTML' assignment.", source: chrome-extension://obclhmidkhbpfoeegemkbippgboekhmk/dist/ruffle.js?id=83533891863 (1)
+11월 27, 2023 14:15:57.29 [9008:34188:1127/141557.290:ERROR:CONSOLE(1)] "Uncaught TypeError: Failed to set the 'innerHTML' property on 'Element': This document requires 'TrustedHTML' assignment.", source: chrome-extension://obclhmidkhbpfoeegemkbippgboekhmk/dist/ruffle.js?id=83533891863 (1)
+11월 27, 2023 14:58:29.94 [9008:34188:1127/145829.946:ERROR:CONSOLE(1)] "Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+11월 27, 2023 15:00:18.49 [9008:34188:1127/150018.490:ERROR:CONSOLE(1)] "Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+11월 27, 2023 15:27:22.93 [9008:34188:1127/152722.938:ERROR:CONSOLE(1)] "Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+11월 27, 2023 15:29:05.11 [9008:34188:1127/152905.109:ERROR:CONSOLE(1)] "Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+11월 27, 2023 15:30:07.14 [9008:34188:1127/153007.145:ERROR:CONSOLE(1)] "Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+11월 27, 2023 15:30:32.33 [9008:34188:1127/153032.331:ERROR:CONSOLE(1)] "Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+11월 27, 2023 15:32:08.37 [9008:34188:1127/153208.372:ERROR:CONSOLE(1)] "Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+11월 27, 2023 15:32:12.32 [9008:34188:1127/153212.325:ERROR:CONSOLE(1)] "Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+11월 27, 2023 16:18:14.46 [37612:32512:1127/161814.460:ERROR:device_event_log_impl.cc(192)] [16:18:14.461] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
