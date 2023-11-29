@@ -26,6 +26,10 @@
 	table{
 	border-collapse: collapse;
 	}
+	table tr td a{
+	color: blue;
+	text-decoration: underline;
+	}
 </style>
 </head>
 <body>
@@ -53,7 +57,7 @@
 			
 				<tr height="50">
 					<td align="center" width="150"><%=fbean.getName()%></td>
-					<td align="center" width="150"><%=fbean.getId()%></td>
+					<td align="center" width="150"><a href="Main.jsp?changePage=FoodingDetail.jsp?id=<%=fbean.getId()%>"><%=fbean.getId()%></a></td>
 					<td align="center" width="200"><%=fbean.getTel()%></td>
 					<td align="center" width="250"><%=fbean.getEmail()%></td>
 					<td align="center" width="200"><%=fbean.getAddress()%></td>

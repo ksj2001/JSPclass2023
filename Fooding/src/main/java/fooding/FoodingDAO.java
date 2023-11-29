@@ -124,7 +124,7 @@ public class FoodingDAO {
     	return password;
     }
     
- // 가입한 회원의 모든 정보를 출력하는 메서드 작성
+    // 가입한 회원의 모든 정보를 출력하는 메서드 작성
     public ArrayList<FoodingBean> allMembers(){
     	getCon();
     	ArrayList<FoodingBean> aList = new ArrayList<>(); // FoodingBean이 자료형인 ArrayList 객체 생성
@@ -135,12 +135,12 @@ public class FoodingDAO {
     		rs = pstmt.executeQuery();
     		while(rs.next()) {
     			FoodingBean fb = new FoodingBean(); // 빈 클래스 생성
-    			fb.setName(rs.getString(1));
-    			fb.setId(rs.getString(2));
-    			fb.setPw(rs.getString(3));
-    			fb.setTel(rs.getString(4));
-    			fb.setEmail(rs.getString(5));
-    			fb.setAddress(rs.getString(6));
+    			fb.setName(rs.getString(2));
+    			fb.setId(rs.getString(3));
+    			fb.setPw(rs.getString(4));
+    			fb.setTel(rs.getString(5));
+    			fb.setEmail(rs.getString(6));
+    			fb.setAddress(rs.getString(7));
     			aList.add(fb);
     		}
     	}catch(Exception e) {
@@ -157,5 +157,60 @@ public class FoodingDAO {
     	
     	
     	return aList;
+    }
+    
+    // 한 사람의 모든 정보를 출력하는 메서드 작성
+    public FoodingBean foodingDetail(String id) {
+    	getCon();
+    	FoodingBean fb = new FoodingBean();
+    	try {
+    		String sql = "select * from fooding where id=?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, id);
+    		rs = pstmt.executeQuery();
+    		if(rs.next()) {
+    			fb.setName(rs.getString(2));
+    			fb.setId(rs.getString(3));
+    			fb.setPw(rs.getString(4));
+    			fb.setTel(rs.getString(5));
+    			fb.setEmail(rs.getString(6));
+    			fb.setAddress(rs.getString(7));
+    		}
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	return fb;
+    }
+    
+    // 이메일, 전화번호, 주소를 수정하는 메서드 작성
+    public void updateInfo(FoodingBean fbean) {
+    	getCon();
+    	try {
+    		String sql = "update fooding set email=?,tel=?,address=? where id=?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, fbean.getEmail());
+    		pstmt.setString(2, fbean.getTel());
+    		pstmt.setString(3, fbean.getAddress());
+    		pstmt.setString(4, fbean.getId());
+    		pstmt.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
     }
 }

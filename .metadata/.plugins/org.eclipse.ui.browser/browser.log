@@ -53,3 +53,9 @@
 11월 27, 2023 21:00:45.93 [37612:32512:1127/210045.926:ERROR:CONSOLE(1)] "Uncaught TypeError: Failed to set the 'innerHTML' property on 'Element': This document requires 'TrustedHTML' assignment.", source: chrome-extension://obclhmidkhbpfoeegemkbippgboekhmk/dist/ruffle.js?id=31130646306 (1)
 11월 27, 2023 21:11:34.30 [37612:32512:1127/211134.307:ERROR:device_event_log_impl.cc(192)] [21:11:34.304] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
 11월 27, 2023 22:25:01.65 [37612:32512:1127/222501.656:ERROR:CONSOLE(1)] "Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+
+11월 29, 2023 16:37:41.86 NEW SESSION
+11월 29, 2023 16:37:41.87 [3812:27412:1129/163741.855:ERROR:device_event_log_impl.cc(192)] [16:37:41.855] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+11월 29, 2023 17:29:12.48 [3812:27412:1129/172912.487:ERROR:device_event_log_impl.cc(192)] [17:29:12.485] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+11월 29, 2023 20:01:18.93 [3812:27412:1129/200118.935:ERROR:device_event_log_impl.cc(192)] [20:01:18.935] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+11월 29, 2023 21:03:16.37 [3812:27412:1129/210316.376:ERROR:device_event_log_impl.cc(192)] [21:03:16.374] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)

@@ -50,7 +50,7 @@
 				<ul>
 					<%if(id!=null){
 						if(id.equals("admin123")){%>
-						<li><a href="Main.jsp?changePage=FoodingMemberList.jsp">회원관리</a></li>
+						<li><a href="Main.jsp?changePage=FoodingList.jsp">회원관리</a></li>
 						<li><a href="#">게시물관리</a></li>
 						<li><a href="#">상품관리</a></li>
 					<%  }
