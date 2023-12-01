@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>BoardWrite</title>
+<title>Insert title here</title>
 <style type="text/css">
 body{
 	display: flex;
@@ -26,18 +26,23 @@ input[type="submit"],input[type="reset"]{
 </style>
 </head>
 <body>
+<%
+	int num = Integer.parseInt(request.getParameter("num"));
+	int ref = Integer.parseInt(request.getParameter("ref"));
+	int re_step = Integer.parseInt(request.getParameter("re_step"));
+	int re_level = Integer.parseInt(request.getParameter("re_level"));
+%>
 <div class="container">
-	<h2>게시글 쓰기</h2>
-	
+	<h2>답변글 입력하기</h2>
 		<table width="600" border="1" bordercolor="gray">
-		<form action="BoardWriteProc.jsp" method="post">
+		<form action="BoardReWriteProc.jsp" method="post">
 			<tr height="40">
 				<td align="center" width="150">작성자</td>
 				<td width="450"><input type="text" name="writer"></td>
 			</tr>
 			<tr height="40">
 				<td align="center" width="150">제목</td>
-				<td width="450"><input type="text" name="subject"></td>
+				<td width="450"><input type="text" name="subject" value="[답변]"></td>
 			</tr>
 			<tr height="40">
 				<td align="center" width="150">이메일</td>
@@ -53,8 +58,11 @@ input[type="submit"],input[type="reset"]{
 			</tr>
 			<tr height="40">
 				<td align="center" colspan="2">
-					<input type="submit" value="글쓰기">&nbsp;&nbsp;
-					<input type="reset" value="다시작성">&nbsp;&nbsp;
+					<input type="hidden" name="ref" value="<%=ref%>">
+					<input type="hidden" name="re_step" value="<%=re_step%>">
+					<input type="hidden" name="re_level" value="<%=re_level%>">
+					<input type="submit" value="답글쓰기완료">&nbsp;&nbsp;
+					<input type="reset" value="취소">&nbsp;&nbsp;
 					</form>
 					<button onclick="location.href='BoardList.jsp'">전체 게시글보기</button>
 				</td>

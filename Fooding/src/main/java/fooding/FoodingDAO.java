@@ -16,10 +16,10 @@ import javax.sql.DataSource;
 
 public class FoodingDAO {
 	// java에 db를 connect해준다. Connection하기 위해서 MySQL 드라이브명을 Class.forName에 입력한다.
-    String id = "root"; // db 아이디
-    String pw = "12345678"; // db 패스워드
-    String url = "jdbc:mysql://localhost:3306/jspdatabase?serverTimezone=UTC"; // 접속 URL
-    
+	/*
+	 * String id = "root"; // db 아이디 String pw = "12345678"; // db 패스워드 String url =
+	 * "jdbc:mysql://localhost:3306/jspdatabase?serverTimezone=UTC"; // 접속 URL
+	 */    
     Connection con;
     PreparedStatement pstmt;
     ResultSet rs;
@@ -200,6 +200,70 @@ public class FoodingDAO {
     		pstmt.setString(2, fbean.getTel());
     		pstmt.setString(3, fbean.getAddress());
     		pstmt.setString(4, fbean.getId());
+    		pstmt.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    }
+    
+    // fooding 테이블의 name, email, tel을 가지고 오는 메서드 작성
+    public FoodingBean foodingMemberJoin(String id) {
+    	getCon();
+    	FoodingBean fbean = new FoodingBean();
+    	
+    	try {
+    		String sql = "select name,email,tel from fooding where id=?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, id);
+    		rs = pstmt.executeQuery();
+    		if(rs.next()) {
+    			fbean.setName(rs.getString(1));
+    			fbean.setEmail(rs.getString(2));
+    			fbean.setTel(rs.getString(3));
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally{
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	return fbean;
+    }
+    
+    // foodingBoard 테이블에 insert하는 메서드
+    public void fInsertBoard(FoodingBoardBean bean) {
+    	getCon();
+    	int ref = 0;
+    	int re_step = 1;
+    	try {
+    		String refSql = "select max(ref) from foodingBoard";
+    		pstmt = con.prepareStatement(refSql);
+    		rs = pstmt.executeQuery();
+    		if(rs.next()) {
+    			ref = rs.getInt(1)+1;
+    		}
+    		String sql = "insert into foodingBoard values(null,?,?,?,current_date(),?,?,?,?)";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, bean.getName());
+    		pstmt.setString(2, bean.getSubject());
+    		pstmt.setString(3, bean.getPassword());
+    		pstmt.setInt(4, ref);
+    		pstmt.setInt(5, re_step);
+    		pstmt.setString(6, bean.getContent());
+    		pstmt.setString(7, bean.getId());
     		pstmt.executeUpdate();
     	}catch(Exception e) {
     		e.printStackTrace();

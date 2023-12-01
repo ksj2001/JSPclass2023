@@ -14,8 +14,9 @@
 	String inputId = request.getParameter("id");
 	String inputPw = request.getParameter("pw");
 	String dbPw = fdao.onePassword(inputId);
+	String dbId = fdao.oneCheckId(inputId);
 	
-	if(dbPw.equals(inputPw)){
+	if(dbPw.equals(inputPw) && dbId.equals(inputId)){ // 로그인 시 존재하지 않는 아이디를 입력하면 로그인이 되는 것을 방지하는 아이디 중복 체크 기능
 		session.setAttribute("id", inputId);
 		session.setAttribute("pw", inputPw);
 		

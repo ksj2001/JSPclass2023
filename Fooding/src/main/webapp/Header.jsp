@@ -48,20 +48,18 @@
 		<div class="navi">
 			<div class="menu">
 				<ul>
-					<%if(id!=null){
-						if(id.equals("admin123")){%>
+					<%if(id!=null && id.equals("admin123")){%>
 						<li><a href="Main.jsp?changePage=FoodingList.jsp">회원관리</a></li>
 						<li><a href="#">게시물관리</a></li>
 						<li><a href="#">상품관리</a></li>
-					<%  }
-					  }else{ %>
+					  <%}else{ %>
 					<li><a href="#">카테고리 전체</a></li>
 					<li><a href="#">신상품</a></li>
 					<li><a href="#">베스트</a></li>
 					<li><a href="#">세일</a></li>
 					<li><a href="#">입점브랜드</a></li>
 					<li><a href="#">푸딩콕</a></li>
-					<%} %>
+					<%}%>
 				</ul>
 			</div>
 			<div class="account">
@@ -78,7 +76,7 @@
 								<li><a href="Main.jsp?logout=1">로그아웃</a></li>
 					<%		}
 					  }%>
-					<li><a href="#">1:1문의</a></li>
+					<li><a href="Main.jsp?changePage=BoardWriteForm.jsp">1:1문의</a></li>
 				</ul>
 			</div>
 		</div>

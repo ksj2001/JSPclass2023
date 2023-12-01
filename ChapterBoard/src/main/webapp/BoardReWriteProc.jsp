@@ -11,18 +11,12 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
-<!-- BoardBean을 jsp action 태그로 인스턴스 -->
 <jsp:useBean id="boardbean" class="model.BoardBean">
-	<jsp:setProperty name="boardbean" property="*" />
+	<jsp:setProperty name="boardbean" property="*"/>
 </jsp:useBean>
-
 <%
-	BoardDAO bDao = new BoardDAO();
-	
-	
-	if(boardbean.getSubject()!=null){
-		bDao.insertBoard(boardbean);
-	}
+	BoardDAO bdao = new BoardDAO();
+	bdao.reWrite(boardbean);
 	response.sendRedirect("BoardList.jsp");
 %>
 </body>
