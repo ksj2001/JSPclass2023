@@ -176,9 +176,11 @@ public class BoardDAO {
 			// re_level을 1씩 더해주는 쿼리 작성
 			
 			  String levelsql =
-			  "update board set re_level=re_level+1 where ref=? and re_level > ?"; pstmt =
-			  con.prepareStatement(levelsql); pstmt.setInt(1, ref); pstmt.setInt(2,
-			  re_level); pstmt.executeUpdate();
+			  "update board set re_level=re_level+1 where ref=? and re_level > ?"; 
+			  pstmt = con.prepareStatement(levelsql); 
+			  pstmt.setInt(1, ref); 
+			  pstmt.setInt(2,re_level); 
+			  pstmt.executeUpdate();
 			 
 			// insert
 			String sql = "insert into board values(null,?,?,?,?,current_date(),?,?,?,0,?)";

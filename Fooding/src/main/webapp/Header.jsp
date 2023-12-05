@@ -76,7 +76,7 @@
 								<li><a href="Main.jsp?logout=1">로그아웃</a></li>
 					<%		}
 					  }%>
-					<li><a href="Main.jsp?changePage=BoardWriteForm.jsp">1:1문의</a></li>
+					<li><a href="Main.jsp?changePage=FoodingBoardList.jsp">1:1문의</a></li>
 				</ul>
 			</div>
 		</div>

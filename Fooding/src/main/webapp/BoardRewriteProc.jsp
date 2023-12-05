@@ -9,16 +9,16 @@
 </head>
 <body>
 <%
-request.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 %>
-<jsp:useBean id="fboardbean" class="fooding.FoodingBoardBean">
-	<jsp:setProperty name="fboardbean" property="*"/>
+<jsp:useBean id="fboardBean" class="fooding.FoodingBoardBean">
+	<jsp:setProperty name="fboardBean" property="*"/>
 </jsp:useBean>
 <%
 	FoodingDAO fdao = new FoodingDAO();
-    if(fboardbean.getSubject()!=null && fboardbean.getContent()!=null && fboardbean.getPassword()!=null){
-    	fdao.fInsertBoard(fboardbean);
-    }
+	if(fboardBean.getSubject()!=null && fboardBean.getContent()!=null && fboardBean.getPassword()!=null){
+		fdao.rewriteInsertBoard(fboardBean);
+	}
 	response.sendRedirect("Main.jsp?changePage=FoodingBoardList.jsp");
 %>
 </body>

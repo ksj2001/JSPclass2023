@@ -214,6 +214,26 @@ public class FoodingDAO {
     	}
     }
     
+    // 한 사람의 정보를 삭제하는 메서드 작성
+    public void deleteInfo(String id) {
+    	getCon();
+    	try {
+    		String sql = "delete from fooding where id=?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, id);
+    		pstmt.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    }
     // fooding 테이블의 name, email, tel을 가지고 오는 메서드 작성
     public FoodingBean foodingMemberJoin(String id) {
     	getCon();
@@ -264,6 +284,162 @@ public class FoodingDAO {
     		pstmt.setInt(5, re_step);
     		pstmt.setString(6, bean.getContent());
     		pstmt.setString(7, bean.getId());
+    		pstmt.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    }
+    
+    // foodingBoard 정보를 모두 출력하는 메서드 작성
+    public ArrayList<FoodingBoardBean> getAllBoard(){
+    	getCon();
+    	ArrayList<FoodingBoardBean> aList = new ArrayList<>(); // FoodingBoardBean이 자료형인 ArrayList 객체 생성
+    	try {
+    		String sql = "select * from foodingBoard order by ref desc";
+    		pstmt = con.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+    		while(rs.next()){
+    			FoodingBoardBean fbb = new FoodingBoardBean();
+    			fbb.setNum(rs.getInt(1));
+    			fbb.setName(rs.getString(2));
+    			fbb.setSubject(rs.getString(3));
+    			fbb.setPassword(rs.getString(4));
+    			fbb.setReg_date(rs.getString(5));
+    			fbb.setRef(rs.getInt(6));
+    			fbb.setRe_step(rs.getInt(7));
+    			fbb.setContent(rs.getString(8));
+    			fbb.setId(rs.getString(9));
+    			aList.add(fbb);
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	return aList;
+    }
+    
+    // 1:1문의글 한 개의 모든 정보를 출력하는 메서드 작성
+    public FoodingBoardBean foodingBoardDetail(String id) {
+    	getCon();
+    	FoodingBoardBean fbb = new FoodingBoardBean();
+    	try {
+    		String sql = "select * from foodingboard where id=?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, id);
+    		rs = pstmt.executeQuery();
+    		if(rs.next()) {
+    			fbb.setNum(rs.getInt(1));
+    			fbb.setName(rs.getString(2));
+    			fbb.setSubject(rs.getString(3));
+    			fbb.setPassword(rs.getString(4));
+    			fbb.setReg_date(rs.getString(5));
+    			fbb.setRef(rs.getInt(6));
+    			fbb.setRe_step(rs.getInt(7));
+    			fbb.setContent(rs.getString(8));
+    			fbb.setId(rs.getString(9));
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	
+    	return fbb;
+    }
+    
+    // 1대1문의 게시글을 수정하는 메서드 작성
+    public void updateBoardInfo(FoodingBoardBean fbbean) {
+    	getCon();
+    	try {
+    		String sql = "update foodingboard set subject=?,content=?,reg_date=current_date(),password=? where id=?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, fbbean.getSubject());
+    		pstmt.setString(2, fbbean.getContent());
+    		pstmt.setString(3, fbbean.getPassword());
+    		pstmt.setString(4, fbbean.getId());
+    		pstmt.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally{
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    }
+    // 1대1문의 게시글 하나를 삭제하는 메서드 작성
+    public void deleteBoardInfo(String id) {
+    	getCon();
+    	try {
+    		String sql = "delete from foodingboard where id=?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, id);
+    		pstmt.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally{
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    }
+    
+    // 답변 게시글을 foodingboard에 추가하는 메서드 작성
+    public void rewriteInsertBoard(FoodingBoardBean fbb) {
+    	getCon();
+    	
+    	int ref = fbb.getRef();
+    	int re_step = fbb.getRe_step();
+    	String name = fbb.getName();
+    	
+    	System.out.println(ref);
+    	System.out.println(re_step);
+    	System.out.println(name);
+    	try {
+    		// 답변글을 쓰면 부모 게시글의 re_step에 4를 더해준다.
+    		String restepSql = "update foodingboard set re_step = re_step + 4 where ref=? and re_step=1";
+    		pstmt = con.prepareStatement(restepSql);
+    		pstmt.setInt(1, ref);
+    		pstmt.executeUpdate();
+    		
+    		// insert
+    		String sql = "insert into foodingboard values(null,?,?,?,current_date(),?,?,?,?)";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, fbb.getName());
+    		pstmt.setString(2, fbb.getSubject());
+    		pstmt.setString(3, fbb.getPassword());
+    		pstmt.setInt(4, ref);
+    		pstmt.setInt(5, re_step + 1);
+    		pstmt.setString(6, fbb.getContent());
+    		pstmt.setString(7, fbb.getId());
     		pstmt.executeUpdate();
     	}catch(Exception e) {
     		e.printStackTrace();
