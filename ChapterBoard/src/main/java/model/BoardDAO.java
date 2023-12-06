@@ -209,4 +209,114 @@ public class BoardDAO {
 		}
 	}
 	
+	
+	// Update,Delete 할 때 한 사람의 게시글을 확인하는 메서드 작성(단, 조회수 증가 쿼리는 제외)
+		public BoardBean getOneUpdateBoard(int num) {
+			getConnect();
+			BoardBean bbean = new BoardBean();
+			
+			try {
+				String sql = "select * from board where num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, num);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					bbean.setNum(rs.getInt(1));
+					bbean.setWriter(rs.getString(2));
+					bbean.setEmail(rs.getString(3));
+					bbean.setSubject(rs.getString(4));
+					bbean.setPassword(rs.getString(5));
+					bbean.setReg_date(rs.getDate(6).toString());
+					bbean.setRef(rs.getInt(7));
+					bbean.setRe_step(rs.getInt(8));
+					bbean.setRe_level(rs.getInt(9));
+					bbean.setReadcount(rs.getInt(10));
+					bbean.setContent(rs.getString(11));
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					if(con!=null) con.close();
+					if(pstmt!=null) pstmt.close();
+					if(rs!=null) rs.close();
+				}catch(SQLException se) {
+					se.printStackTrace();
+				}
+			}
+			return bbean;
+		}
+	// 비밀번호를 확인하는 메서드 작성
+	public String getOnePassword(int num) {
+		getConnect();
+		String pw = "";
+		try {
+			String sql = "select password from board where num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				pw = rs.getString(1);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try {
+				if(con!=null) con.close();
+				if(pstmt!=null) pstmt.close();
+				if(rs!=null) rs.close();
+			}catch(SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		return pw;
+	}
+	
+	// 한 사람의 게시글을 update하는 메서드 작성
+	public void update(BoardBean bbean) {
+		getConnect();
+		try {
+			String sql = "update board set subject=?,content=? where num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bbean.getSubject());
+			pstmt.setString(2, bbean.getContent());
+			pstmt.setInt(3, bbean.getNum());
+			pstmt.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			try {
+				if(con!=null) con.close();
+				if(pstmt!=null) pstmt.close();
+				if(rs!=null) rs.close();
+			}catch(SQLException se) {
+				se.printStackTrace();
+			}
+		}
+	}
+	
+	// 한 사람의 게시글을 delete하는 메서드 작성
+		public void delete(int num) {
+			getConnect();
+			try {
+				String sql = "delete from board where num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, num);
+				pstmt.executeUpdate();
+				System.out.println(num);
+			}catch(Exception e){
+				e.printStackTrace();
+			}finally {
+				try {
+					if(con!=null) con.close();
+					if(pstmt!=null) pstmt.close();
+					if(rs!=null) rs.close();
+				}catch(SQLException se) {
+					se.printStackTrace();
+				}
+			}
+		}
+		
+		
 }

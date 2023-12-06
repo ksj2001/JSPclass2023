@@ -333,6 +333,41 @@ public class FoodingDAO {
     	return aList;
     }
     
+    // Main에 return할 BoardList 메서드 작성(id가 admin123인 경우는 제외)
+    public ArrayList<FoodingBoardBean> getAllMainBoard(){
+    	getCon();
+    	ArrayList<FoodingBoardBean> aList = new ArrayList<>(); // FoodingBoardBean이 자료형인 ArrayList 객체 생성
+    	try {
+    		String sql = "select * from foodingBoard where id <>'admin123' order by ref desc";
+    		pstmt = con.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+    		while(rs.next()){
+    			FoodingBoardBean fbb = new FoodingBoardBean();
+    			fbb.setNum(rs.getInt(1));
+    			fbb.setName(rs.getString(2));
+    			fbb.setSubject(rs.getString(3));
+    			fbb.setPassword(rs.getString(4));
+    			fbb.setReg_date(rs.getString(5));
+    			fbb.setRef(rs.getInt(6));
+    			fbb.setRe_step(rs.getInt(7));
+    			fbb.setContent(rs.getString(8));
+    			fbb.setId(rs.getString(9));
+    			aList.add(fbb);
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	return aList;
+    }
+    
     // 1:1문의글 한 개의 모든 정보를 출력하는 메서드 작성
     public FoodingBoardBean foodingBoardDetail(String id) {
     	getCon();

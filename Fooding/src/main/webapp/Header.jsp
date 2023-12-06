@@ -67,6 +67,7 @@
 					<%if(id==null){ %>
 						<li><a href="Main.jsp?changePage=Login.jsp">로그인</a></li>
 						<li><a href="Main.jsp?changePage=FoodingJoinForm.jsp">회원가입</a></li>
+						<li><a href="Main.jsp?changePage=BoardMainList.jsp">1:1문의</a></li>
 					<%}else{
 							if(id.equals("admin123")){%>
 								<li><a href="#" style="cursor: default">관리자 로그인</a></li>
@@ -74,9 +75,9 @@
 					<%		}else{%>
 								<li><a href="#" style="cursor: default"><%=id %>님 로그인!</a></li>
 								<li><a href="Main.jsp?logout=1">로그아웃</a></li>
-					<%		}
-					  }%>
-					<li><a href="Main.jsp?changePage=FoodingBoardList.jsp">1:1문의</a></li>
+					<%		}%>
+							<li><a href="Main.jsp?changePage=FoodingBoardList.jsp">1:1문의</a></li>	
+					<%}%>
 				</ul>
 			</div>
 		</div>

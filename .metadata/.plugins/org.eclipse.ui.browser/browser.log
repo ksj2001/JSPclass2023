@@ -73,3 +73,8 @@
 12월 01, 2023 14:30:19.52 [23700:29868:1201/143019.527:ERROR:CONSOLE(1)] "Uncaught TypeError: Failed to set the 'innerHTML' property on 'Element': This document requires 'TrustedHTML' assignment.", source: chrome-extension://obclhmidkhbpfoeegemkbippgboekhmk/dist/ruffle.js?id=79488058694 (1)
 12월 01, 2023 14:58:13.26 [23700:29868:1201/145813.267:ERROR:interface_endpoint_client.cc(702)] Message 0 rejected by interface blink.mojom.WidgetHost
 12월 01, 2023 16:28:41.16 [23700:29868:1201/162841.168:ERROR:device_event_log_impl.cc(192)] [16:28:41.167] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+12월 06, 2023 14:09:18.16 NEW SESSION
+12월 06, 2023 14:09:18.18 [17688:8808:1206/140918.168:ERROR:device_event_log_impl.cc(192)] [14:09:18.168] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+12월 06, 2023 15:04:36.98 [1916:11516:1206/150436.981:ERROR:device_event_log_impl.cc(192)] [15:04:36.981] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+12월 06, 2023 15:08:00.61 [17112:9232:1206/150800.614:ERROR:device_event_log_impl.cc(192)] [15:08:00.614] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
