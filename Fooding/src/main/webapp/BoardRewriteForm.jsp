@@ -60,6 +60,7 @@
 	int num = Integer.parseInt(request.getParameter("num"));
 	int ref = Integer.parseInt(request.getParameter("ref"));
 	int re_step = Integer.parseInt(request.getParameter("re_step"));
+	String id_key = request.getParameter("id");
     FoodingDAO fdao = new FoodingDAO();
 	// fooding 테이블의 name, email, tel의 값을 가지고 오는 DAO 메서드 작성(foodingMemberJoin)
     FoodingBean fbean = fdao.foodingDetail(id);
@@ -109,7 +110,8 @@
 							<input type="hidden" name="num" value="<%=num%>">
 							<input type="hidden" name="ref" value="<%=ref%>">
 							<input type="hidden" name="re_step" value="<%=re_step%>">
-							<input type="hidden" name="id" value="<%=id%>">	
+							<input type="hidden" name="id" value="<%=id%>">
+							<input type="hidden" name="id_key" value="<%=id_key%>">	
 							<input type="submit" name="complete" value="완료"></form>
 							<input type="button" name="list" onclick="location.href='Main.jsp?changePage=FoodingBoardList.jsp'" value="목록보기">
 						</div>

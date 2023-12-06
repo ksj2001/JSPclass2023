@@ -10,6 +10,7 @@ public class FoodingBoardBean {
 	private int re_step;
 	private String content;
 	private String id;
+	private String id_key;
 	
 	public int getNum() {
 		return num;
@@ -64,5 +65,11 @@ public class FoodingBoardBean {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getId_key() {
+		return id_key;
+	}
+	public void setId_key(String id_key) {
+		this.id_key = id_key;
 	}
 }

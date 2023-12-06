@@ -57,9 +57,10 @@
 <body>
 <%
 	String id = request.getParameter("id");
+	String id_key = request.getParameter("id_key");
 	String loginId = (String)session.getAttribute("id");
     FoodingDAO fdao = new FoodingDAO();
-    FoodingBoardBean bean = fdao.foodingBoardDetail(id);
+    FoodingBoardBean bean = fdao.foodingBoardDetail(id,id_key);
 %>
 <div class="container">
 	<div class="tableBox">

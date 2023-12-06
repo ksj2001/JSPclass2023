@@ -101,6 +101,7 @@
 					<td colspan="4" class="title">
 						<input type="hidden" name="name" value="<%=fbean.getName()%>">
 						<input type="hidden" name="id" value="<%=id%>">	
+						<input type="hidden" name="id_key" value="<%=id%>">	
 						<input type="submit" name="complete" value="완료">
 					</td>
 				</tr>

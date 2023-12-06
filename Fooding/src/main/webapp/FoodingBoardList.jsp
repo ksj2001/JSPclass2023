@@ -22,19 +22,58 @@ body{
 	margin: 100px auto;
 }
 h2{
-	text-align: center;
+	font-size: 22px;
+	color: #222;
+	line-height: 22px;
+	margin-bottom: 30px;
 }
 table{
+	border-top: 1px solid #999999;
 	border-collapse: collapse;
 }
-input[type="button"]{
-	display: block;
-	width: 100px;
-	height: 35px;
-	margin: 0 auto;
+table tr th{
+	font-size: 15px;
+	font-weight: 600;
+	text-align: center;
+	color: #222;
+	border-bottom: 1px solid #dbdbdb;
+	background-color: #fbfbfb;
+}
+table tr td{
+	font-size: 15px;
+	color: #555;
+	border-bottom: 1px solid #e1e1e1;
+}
+table tr:last-child td{
+	border-bottom: none;
 }
 table tr td a:hover{
 	text-decoration: underline;
+}
+table tr td div.status{
+	width: 65px;
+	height: 27px;
+	padding: 5px 10px;
+	border: none;
+	font-size: 12px;
+	line-height: 27px;
+	background-color: #e9e9e9;
+}
+table tr td div.status.complete{
+	color: white;
+	background-color: #00a7b3;
+}
+input[type="button"]{
+	display: block;
+	width: 170px;
+	height: 50px;
+	margin: 30px auto 20px;
+	background-color: #00a7b3;
+    border: none;
+    font-size: 17px;
+    color: white;
+    line-height: 50px;
+    cursor: pointer;
 }
 </style>
 </head>
@@ -47,12 +86,12 @@ table tr td a:hover{
 <div class="container">
 	<div class="tableBox">
 		<h2>1:1문의하기</h2>
-		<table width="1100" border="1">
-		<tr height="40">
-			<td width="150" align="center">등록일</td>
-			<td width="700" align="center">문의내용</td>
-			<td width="100" align="center">작성자</td>
-			<td width="150" align="center">문의상태</td>
+		<table width="1100" border="0">
+		<tr height="52">
+			<th width="150">등록일</th>
+			<th width="700">문의내용</th>
+			<th width="100">작성자</th>
+			<th width="150">문의상태</th>
 		</tr>
 		<%
 			for(int i=0; i<alist.size(); i++){
@@ -60,19 +99,21 @@ table tr td a:hover{
 				
 				if(bean.getSubject() != null){
 		%>
-					<tr height="40">
+					<tr height="73">
 						<%-- <% // 오늘 올린 글은 시간으로 출력, 나머지는 날짜로 출력 %> --%>
 						<td width="50" align="center"><%=bean.getReg_date() %></td>
 						<td width="50">&nbsp;&nbsp;
-						<% // 관리자로 로그인했을때 or 로그인한 회원 본인이 쓴 글일 때 공개글로 설정
-						  if(id!=null && (id.equals("admin123") || id.equals(bean.getId()))){ %>
+						<% // 회원이 올린 글: 관리자로 로그인했을때 or 로그인한 회원 본인이 쓴 글일 때 공개글로 설정
+						  if(bean.getRe_step()!=2 && (id.equals("admin123") || id.equals(bean.getId_key()))){ %>
 							<i class="fa-solid fa-lock-open"></i>&nbsp;
-							<a href="Main.jsp?changePage=FoodingBoardDetail.jsp?id=<%=bean.getId()%>"><%=bean.getSubject()%></a></td>				
-						<%}else if(bean.getRe_step()!=2){%>
+							<a href="Main.jsp?changePage=FoodingBoardDetail.jsp?id=<%=bean.getId()%>&id_key=<%=bean.getId_key()%>"><%=bean.getSubject()%></a></td>				
+						<%}else if(bean.getRe_step()!=2){ // 위 조건에 만족하지 않으면 비공개글로 설정%>
 							<i class="fa-solid fa-lock"></i>&nbsp;
 							<a href="Main.jsp?changePage=FoodingBoardDetailLocked.jsp"><%=bean.getSubject()%></a></td>
-						<%}else if(id!=null){%>
-							<a href="Main.jsp?changePage=FoodingBoardDetail.jsp?id=<%=bean.getId()%>">&nbsp;&nbsp;&nbsp;<%=bean.getSubject()%></a></td>	
+						<%}else if(id.equals("admin123") || id.equals(bean.getId_key())){ // 관리자 답글: 관리자 혹은 답변을 받은 회원 본인만 확인 가능%>
+							<a href="Main.jsp?changePage=FoodingBoardDetail.jsp?id=<%=bean.getId()%>&id_key=<%=bean.getId_key()%>">&nbsp;&nbsp;&nbsp;<%=bean.getSubject()%></a></td>	
+						<%}else{ // 위 조건에 만족하지 않으면 확인 불가%>
+							<a href="Main.jsp?changePage=FoodingBoardDetailLocked.jsp">&nbsp;&nbsp;&nbsp;<%=bean.getSubject()%></a></td>
 						<%}%>
 						<td width="50" align="center">
 						<%-- <% // 이름의 세번째 글자부터 가리기(단, 관리자 제외)
@@ -111,7 +152,7 @@ table tr td a:hover{
 				}
 			}
 		%>
-		<tr height="40">
+		<tr height="100">
 			<td colspan="5">
 				<input type="button" onclick="writeBtn()" value="1:1문의하기">
 			</td>

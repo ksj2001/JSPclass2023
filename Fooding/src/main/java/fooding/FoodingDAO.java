@@ -268,6 +268,7 @@ public class FoodingDAO {
     	getCon();
     	int ref = 0;
     	int re_step = 1;
+    	String id_key = "";
     	try {
     		String refSql = "select max(ref) from foodingBoard";
     		pstmt = con.prepareStatement(refSql);
@@ -275,7 +276,7 @@ public class FoodingDAO {
     		if(rs.next()) {
     			ref = rs.getInt(1)+1;
     		}
-    		String sql = "insert into foodingBoard values(null,?,?,?,current_date(),?,?,?,?)";
+    		String sql = "insert into foodingBoard values(null,?,?,?,current_date(),?,?,?,?,?)";
     		pstmt = con.prepareStatement(sql);
     		pstmt.setString(1, bean.getName());
     		pstmt.setString(2, bean.getSubject());
@@ -284,6 +285,7 @@ public class FoodingDAO {
     		pstmt.setInt(5, re_step);
     		pstmt.setString(6, bean.getContent());
     		pstmt.setString(7, bean.getId());
+    		pstmt.setString(8, bean.getId_key());
     		pstmt.executeUpdate();
     	}catch(Exception e) {
     		e.printStackTrace();
@@ -317,6 +319,7 @@ public class FoodingDAO {
     			fbb.setRe_step(rs.getInt(7));
     			fbb.setContent(rs.getString(8));
     			fbb.setId(rs.getString(9));
+    			fbb.setId_key(rs.getString(10));
     			aList.add(fbb);
     		}
     	}catch(Exception e) {
@@ -352,6 +355,7 @@ public class FoodingDAO {
     			fbb.setRe_step(rs.getInt(7));
     			fbb.setContent(rs.getString(8));
     			fbb.setId(rs.getString(9));
+    			fbb.setId_key(rs.getString(10));
     			aList.add(fbb);
     		}
     	}catch(Exception e) {
@@ -369,13 +373,14 @@ public class FoodingDAO {
     }
     
     // 1:1문의글 한 개의 모든 정보를 출력하는 메서드 작성
-    public FoodingBoardBean foodingBoardDetail(String id) {
+    public FoodingBoardBean foodingBoardDetail(String id,String id_key) {
     	getCon();
     	FoodingBoardBean fbb = new FoodingBoardBean();
     	try {
-    		String sql = "select * from foodingboard where id=?";
+    		String sql = "select * from foodingboard where id=? and id_key=?";
     		pstmt = con.prepareStatement(sql);
     		pstmt.setString(1, id);
+    		pstmt.setString(2, id_key);
     		rs = pstmt.executeQuery();
     		if(rs.next()) {
     			fbb.setNum(rs.getInt(1));
@@ -387,6 +392,7 @@ public class FoodingDAO {
     			fbb.setRe_step(rs.getInt(7));
     			fbb.setContent(rs.getString(8));
     			fbb.setId(rs.getString(9));
+    			fbb.setId_key(rs.getString(10));
     		}
     	}catch(Exception e) {
     		e.printStackTrace();
@@ -453,11 +459,7 @@ public class FoodingDAO {
     	
     	int ref = fbb.getRef();
     	int re_step = fbb.getRe_step();
-    	String name = fbb.getName();
     	
-    	System.out.println(ref);
-    	System.out.println(re_step);
-    	System.out.println(name);
     	try {
     		// 답변글을 쓰면 부모 게시글의 re_step에 4를 더해준다.
     		String restepSql = "update foodingboard set re_step = re_step + 4 where ref=? and re_step=1";
@@ -466,7 +468,7 @@ public class FoodingDAO {
     		pstmt.executeUpdate();
     		
     		// insert
-    		String sql = "insert into foodingboard values(null,?,?,?,current_date(),?,?,?,?)";
+    		String sql = "insert into foodingboard values(null,?,?,?,current_date(),?,?,?,?,?)";
     		pstmt = con.prepareStatement(sql);
     		pstmt.setString(1, fbb.getName());
     		pstmt.setString(2, fbb.getSubject());
@@ -475,6 +477,7 @@ public class FoodingDAO {
     		pstmt.setInt(5, re_step + 1);
     		pstmt.setString(6, fbb.getContent());
     		pstmt.setString(7, fbb.getId());
+    		pstmt.setString(8, fbb.getId_key());
     		pstmt.executeUpdate();
     	}catch(Exception e) {
     		e.printStackTrace();
