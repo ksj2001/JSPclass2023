@@ -81,3 +81,8 @@
 12월 06, 2023 17:40:49.96 [17112:9232:1206/174049.964:ERROR:device_event_log_impl.cc(192)] [17:40:49.964] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
 12월 06, 2023 22:11:38.84 [17112:9232:1206/221138.837:ERROR:CONSOLE(1)] "Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
 12월 06, 2023 22:11:40.71 [17112:9232:1206/221140.717:ERROR:CONSOLE(1)] "Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+
+12월 08, 2023 14:19:22.61 NEW SESSION
+12월 08, 2023 14:19:22.62 [3900:23824:1208/141922.617:ERROR:device_event_log_impl.cc(192)] [14:19:22.617] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+12월 08, 2023 15:15:03.90 [1452:24628:1208/151503.908:ERROR:device_event_log_impl.cc(192)] [15:15:03.908] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+12월 08, 2023 16:08:34.92 [1452:24628:1208/160834.927:ERROR:interface_endpoint_client.cc(702)] Message 5 rejected by interface blink.mojom.WidgetHost

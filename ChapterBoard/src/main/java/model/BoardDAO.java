@@ -77,13 +77,15 @@ public class BoardDAO {
 	}
 	
 	// 모든 회원의 게시글 보기
-	public ArrayList<BoardBean> getAllBoard(){
+	public ArrayList<BoardBean> getAllBoard(int start,int pageSize){
 		getConnect();
 		ArrayList<BoardBean> a = new ArrayList<>();
 		
 		try {
-			String sql = "select * from board order by ref desc,re_step asc,re_level asc";
+			String sql = "select * from board order by ref desc,re_step asc,re_level asc limit ?,?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, start-1); // limit는 index 번호를 0부터 읽어들인다.
+			pstmt.setInt(2, pageSize);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -318,5 +320,28 @@ public class BoardDAO {
 			}
 		}
 		
-		
+	// pageing 작업을 하기 위한 게시글의 전체 개수를 return하는 메서드
+	public int getCount() {
+		getConnect();
+		int count=0;
+		try {
+			String sql = "select count(*) from board";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			try {
+				if(con!=null) con.close();
+				if(pstmt!=null) pstmt.close();
+				if(rs!=null) rs.close();
+			}catch(SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		return count;
+	}
 }

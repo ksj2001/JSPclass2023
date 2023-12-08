@@ -301,12 +301,14 @@ public class FoodingDAO {
     }
     
     // foodingBoard 정보를 모두 출력하는 메서드 작성
-    public ArrayList<FoodingBoardBean> getAllBoard(){
+    public ArrayList<FoodingBoardBean> getAllBoard(int start,int pageSize){
     	getCon();
     	ArrayList<FoodingBoardBean> aList = new ArrayList<>(); // FoodingBoardBean이 자료형인 ArrayList 객체 생성
     	try {
-    		String sql = "select * from foodingBoard order by ref desc";
+    		String sql = "select * from foodingBoard order by ref desc limit ?,?";
     		pstmt = con.prepareStatement(sql);
+    		pstmt.setInt(1, start-1);
+    		pstmt.setInt(2, pageSize);
     		rs = pstmt.executeQuery();
     		while(rs.next()){
     			FoodingBoardBean fbb = new FoodingBoardBean();
@@ -337,12 +339,14 @@ public class FoodingDAO {
     }
     
     // Main에 return할 BoardList 메서드 작성(id가 admin123인 경우는 제외)
-    public ArrayList<FoodingBoardBean> getAllMainBoard(){
+    public ArrayList<FoodingBoardBean> getAllMainBoard(int start,int pageSize){
     	getCon();
     	ArrayList<FoodingBoardBean> aList = new ArrayList<>(); // FoodingBoardBean이 자료형인 ArrayList 객체 생성
     	try {
-    		String sql = "select * from foodingBoard where id <>'admin123' order by ref desc";
+    		String sql = "select * from foodingBoard where id <>'admin123' order by ref desc limit ?,?";
     		pstmt = con.prepareStatement(sql);
+    		pstmt.setInt(1, start-1);
+    		pstmt.setInt(2, pageSize);
     		rs = pstmt.executeQuery();
     		while(rs.next()){
     			FoodingBoardBean fbb = new FoodingBoardBean();
@@ -490,5 +494,55 @@ public class FoodingDAO {
     			se.printStackTrace();
     		}
     	}
+    }
+    
+    // FoodingBoardList에 있는 전체 게시글 개수를 return하는 메서드
+    public int getAllCount() {
+    	getCon();
+    	int count = 0;
+    	try {
+    		String sql = "select count(*) from foodingboard";
+    		pstmt = con.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+    		if(rs.next()) {
+    			count = rs.getInt(1);
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	return count;
+    }
+    
+    // BoardMainList에 있는 전체 게시글 개수를 return하는 메서드 (관리자 답글은 제외)
+    public int getMainCount() {
+    	getCon();
+    	int count = 0;
+    	try {
+    		String sql = "select count(*) from foodingboard where id<>'admin123'";
+    		pstmt = con.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+    		if(rs.next()) {
+    			count = rs.getInt(1);
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	return count;
     }
 }
