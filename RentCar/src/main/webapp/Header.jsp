@@ -47,14 +47,18 @@
 </style>
 </head>
 <body>
+<%
+	String id = (String)session.getAttribute("id");
+%>
 	<div class="headerContainer">
 		<div class="headerContainerWrap">
 			<div class="logo">
 				<img alt="" src="img/sk_logo.png">
-			<%  if(true){%>
-				<button name="login">로그인</button>
+			<%  if(id == null){%>
+				<button name="login" onclick="location.href='RentCarMain.jsp?sectionChange=MemberLogin.jsp'">로그인</button>
 			<%  }else{%>
-				<button name="logout">로그아웃</button>
+			    <%=id %>님&nbsp;
+				<button name="logout" onclick="location.href='MemberLogout.jsp'">로그아웃</button>
 			<%  }%>
 			</div>
 			<div class="navi">

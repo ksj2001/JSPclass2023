@@ -13,7 +13,7 @@
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	height: 1200px;
+	height: 2600px;
 	background-color: #fff;
 }
 .listSearchWrap{
@@ -26,11 +26,12 @@
 	gap: 20px;
 	flex-flow: row wrap;
 	width: 950px;
-	height: 1200px;
+	height: 2550px;
+	margin: 20px 0;
 }
 .carProduct{
 	width: 300px;
-	height: 200px;
+	height: 250px;
 }
 </style>
 </head>
@@ -40,9 +41,8 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 
-	int category = Integer.parseInt(request.getParameter("category"));
 	RentCarDAO rdao = new RentCarDAO();
-	ArrayList<CarListBean> aList = rdao.getCategoryCar(category);
+	ArrayList<CarListBean> aList = rdao.getAllCar();
 %>
 	<div class="car">
 <%
