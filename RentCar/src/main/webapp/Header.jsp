@@ -63,7 +63,7 @@
 			</div>
 			<div class="navi">
 				<div class="menu"><a href="RentCarMain.jsp?sectionChange=CarReserveMain.jsp">예약하기</a></div>
-				<div class="menu"><a href="#">예약확인</a></div>
+				<div class="menu"><a href="RentCarMain.jsp?sectionChange=CarViewReserve.jsp">예약확인</a></div>
 				<div class="menu"><a href="#">게시판</a></div>
 				<div class="menu"><a href="#">이벤트</a></div>
 				<div class="menu"><a href="#">고객센터</a></div>

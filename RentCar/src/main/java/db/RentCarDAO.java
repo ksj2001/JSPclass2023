@@ -188,4 +188,92 @@ public class RentCarDAO {
     	}
     	return result;
     }
+    
+    // CarReserveTable에 예약 정보를 Insert하는 메서드
+    public void carReserveInsert(CarReserveBean bean) {
+    	getCon();
+    	try {
+    		String sql = "insert into carreserve values(null,?,?,?,?,?,?,?,?,?)";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setInt(1, bean.getNo());
+    		pstmt.setString(2, bean.getId());
+    		pstmt.setInt(3, bean.getCarcnt());
+    		pstmt.setInt(4, bean.getDday());
+    		pstmt.setString(5, bean.getRday());
+    		pstmt.setInt(6, bean.getUsein());
+    		pstmt.setInt(7, bean.getUsewifi());
+    		pstmt.setInt(8, bean.getUsenavi());
+    		pstmt.setInt(9, bean.getUsebaby());
+    		pstmt.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+        		if(pstmt!=null) pstmt.close();
+        		if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    }
+    
+    // RentCarTable + CarReserveTable의 필요한 필드명만 join하여 예약 확인 목록을 출력하는 메서드
+    public ArrayList<CarViewBean> getReserveList(String id){
+    	getCon();
+    	ArrayList<CarViewBean> a = new ArrayList<>();
+    	try {
+    		String sql = "SELECT * FROM rentcar r JOIN carreserve c ON r.no = c.no where id=? and current_date()<= rday";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, id);
+    		rs = pstmt.executeQuery();
+    		while(rs.next()) {
+    			CarViewBean vbean = new CarViewBean();
+    			vbean.setNo(rs.getInt(1));
+    			vbean.setName(rs.getString(2));
+    			vbean.setPrice(rs.getInt(4));
+    			vbean.setImg(rs.getString(7));
+    			vbean.setCarcnt(rs.getInt(12));
+    			vbean.setDday(rs.getInt(13));
+    			vbean.setRday(rs.getString(14));
+    			vbean.setUsein(rs.getInt(15));
+    			vbean.setUsewifi(rs.getInt(16));
+    			vbean.setUsenavi(rs.getInt(17));
+    			vbean.setUsebaby(rs.getInt(18));
+    			a.add(vbean);
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se){
+    			se.printStackTrace();
+    		}
+    	}
+    	return a;
+    }
+    
+    // 차량번호가 같은 CarReserve 테이블의 레코드를 삭제하는 메서드
+    public void deleteReserve(int no) {
+    	getCon();
+    	try {
+    		String sql = "delete from carreserve where no=?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setInt(1, no);
+    		pstmt.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    }
 }
