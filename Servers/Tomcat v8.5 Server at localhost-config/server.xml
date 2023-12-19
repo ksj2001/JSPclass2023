@@ -179,7 +179,7 @@
       <Context docBase="RentCar" path="/RentCar" reloadable="true" source="org.eclipse.jst.jee.server:RentCar">
        <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" loginTimeout="10" maxWaite="5000" name="jdbc/pool" password="12345678" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jspdatabase?serverTimezone=UTC" username="root"/>
       </Context>
-      </Host>
+      <Context docBase="MVC_day01" path="/MVC_day01" reloadable="true" source="org.eclipse.jst.jee.server:MVC_day01"/></Host>
     </Engine>
   </Service>
 </Server>
