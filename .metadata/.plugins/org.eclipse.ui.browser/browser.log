@@ -186,3 +186,7 @@
 12월 19, 2023 16:43:20.79 [31060:29772:1219/164320.796:ERROR:page_load_metrics_update_dispatcher.cc(179)] Invalid first_paint 0.474 s for first_image_paint 0.473 s
 12월 19, 2023 16:43:23.34 [31060:29772:1219/164323.342:ERROR:page_load_metrics_update_dispatcher.cc(179)] Invalid first_paint 0.474 s for first_image_paint 0.473 s
 12월 19, 2023 16:43:24.40 [31060:29772:1219/164324.400:ERROR:page_load_metrics_update_dispatcher.cc(179)] Invalid first_paint 0.474 s for first_image_paint 0.473 s
+
+12월 20, 2023 14:31:06.97 NEW SESSION
+12월 20, 2023 14:31:06.99 [24968:22056:1220/143106.969:ERROR:device_event_log_impl.cc(192)] [14:31:06.968] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+12월 20, 2023 16:45:29.27 [4740:18132:1220/164529.279:ERROR:device_event_log_impl.cc(192)] [16:45:29.279] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)

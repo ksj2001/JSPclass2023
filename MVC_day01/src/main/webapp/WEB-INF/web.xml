@@ -29,4 +29,14 @@
     <servlet-name>ffff</servlet-name>
     <url-pattern>/ffff</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MemberJoinProc</display-name>
+    <servlet-name>MemberJoinProc</servlet-name>
+    <servlet-class>control.MemberJoinProc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberJoinProc</servlet-name>
+    <url-pattern>/MemberJoinProc</url-pattern>
+  </servlet-mapping>
 </web-app>
