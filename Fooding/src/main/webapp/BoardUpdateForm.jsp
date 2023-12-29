@@ -1,5 +1,5 @@
 <%@page import="fooding.FoodingBoardBean"%>
-<%@page import="fooding.FoodingBean"%>
+<%@page import="fooding.FoodingDTO"%>
 <%@page import="fooding.FoodingDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -55,10 +55,10 @@
 </head>
 <body>
 <%
-	String id = (String)session.getAttribute("id");
+String id = (String)session.getAttribute("id");
     FoodingDAO fdao = new FoodingDAO();
 	// fooding 테이블의 name, email, tel의 값을 가지고 오는 DAO 메서드 작성(foodingMemberJoin)
-    FoodingBean fbean = fdao.foodingMemberJoin(id);
+    FoodingDTO fbean = fdao.foodingMemberJoin(id);
 	FoodingBoardBean bean = fdao.foodingBoardDetail(id);
 
 	if(id==null){

@@ -1,5 +1,5 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="fooding.FoodingBean"%>
+<%@page import="fooding.FoodingDTO"%>
 <%@page import="fooding.FoodingDAO"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -14,11 +14,11 @@
 </head>
 <body>
 <%
-	request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 %>
 <!-- useBean을 이용해서 FoodingBean에 있는 자료를 가져오기 -->
 <!-- 객체 생성: FoodingBean fbean = new FoodingBean(); -->
-<jsp:useBean id="fbean" class="fooding.FoodingBean">
+<jsp:useBean id="fbean" class="fooding.FoodingDTO">
 	<jsp:setProperty name="fbean" property="*"/>  
 </jsp:useBean>
 

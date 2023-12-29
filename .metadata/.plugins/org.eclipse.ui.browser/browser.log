@@ -190,3 +190,8 @@
 12월 20, 2023 14:31:06.97 NEW SESSION
 12월 20, 2023 14:31:06.99 [24968:22056:1220/143106.969:ERROR:device_event_log_impl.cc(192)] [14:31:06.968] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
 12월 20, 2023 16:45:29.27 [4740:18132:1220/164529.279:ERROR:device_event_log_impl.cc(192)] [16:45:29.279] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+12월 29, 2023 13:27:29.43 NEW SESSION
+12월 29, 2023 13:27:29.44 [14040:38872:1229/132729.434:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+12월 29, 2023 15:43:50.70 [14040:38872:1229/154350.706:ERROR:device_event_log_impl.cc(192)] [15:43:50.706] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+12월 29, 2023 16:27:58.10 [14040:38872:1229/162758.103:ERROR:device_event_log_impl.cc(192)] [16:27:58.102] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)

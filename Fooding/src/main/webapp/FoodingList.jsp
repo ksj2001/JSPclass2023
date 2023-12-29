@@ -1,4 +1,4 @@
-<%@page import="fooding.FoodingBean"%>
+<%@page import="fooding.FoodingDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="fooding.FoodingDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -35,8 +35,8 @@
 <body>
 	<!-- 1. 데이터베이스에 저장된 데이터 가져오기 -->
 	<%
-		FoodingDAO fdao = new FoodingDAO();
-		ArrayList<FoodingBean> aList = fdao.allMembers();
+	FoodingDAO fdao = new FoodingDAO();
+			ArrayList<FoodingDTO> aList = fdao.allMembers();
 	%>
 	<!-- 2. 테이블 HTML 작성해서 화면 출력 -->
 	<div class="container">
@@ -51,8 +51,8 @@
 					<td align="center" width="200">주소</td>
 				</tr>
 				<%
-					for(int i=0;i<aList.size();i++){
-						FoodingBean fbean = aList.get(i);
+				for(int i=0;i<aList.size();i++){
+								FoodingDTO fbean = aList.get(i);
 				%>
 			
 				<tr height="50">

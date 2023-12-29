@@ -89,7 +89,7 @@
 			<span>지금 회원가입하신 후 푸딩팩토리의 다양한 식자재 메뉴를 만나보세요.</span>
 			<div class="formBox">
 				<h3>필수항목</h3>
-				<form action="FoodingJoinProc.jsp" method="post">
+				<form action="FoodingJoinProc.do" method="post">
 					<input type="text" name="name" class="content" placeholder="이름">
 					<input type="text" name="id" class="content" placeholder="아이디">
 					<input type="password" name="pw" class="content" placeholder="비밀번호">

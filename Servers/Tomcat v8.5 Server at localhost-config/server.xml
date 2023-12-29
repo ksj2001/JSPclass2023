@@ -183,6 +183,9 @@
       <Context docBase="MVC_Member" path="/MVC_Member" reloadable="true" source="org.eclipse.jst.jee.server:MVC_Member">
       	<Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" loginTimeout="10" maxWaite="5000" name="jdbc/pool" password="12345678" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jspdatabase?serverTimezone=UTC" username="root"/>
       </Context>
+      <Context docBase="MVC_Board" path="/MVC_Board" reloadable="true" source="org.eclipse.jst.jee.server:MVC_Board">
+      	<Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" loginTimeout="10" maxWaite="5000" name="jdbc/pool" password="12345678" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jspdatabase?serverTimezone=UTC" username="root"/>
+      </Context>
       </Host>
     </Engine>
   </Service>

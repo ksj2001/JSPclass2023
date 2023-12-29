@@ -1,6 +1,6 @@
 package fooding;
 
-public class FoodingBean {
+public class FoodingDTO {
 	private String name;
 	private String id;
 	private String pw;

@@ -40,7 +40,7 @@ public class FoodingDAO {
 		}
     }
     
-    public void insertFooding(FoodingBean fbean) {
+    public void insertFooding(FoodingDTO fbean) {
     	getCon();
     	try {
     		// 쿼리 실행 준비 작업
@@ -125,16 +125,16 @@ public class FoodingDAO {
     }
     
     // 가입한 회원의 모든 정보를 출력하는 메서드 작성
-    public ArrayList<FoodingBean> allMembers(){
+    public ArrayList<FoodingDTO> allMembers(){
     	getCon();
-    	ArrayList<FoodingBean> aList = new ArrayList<>(); // FoodingBean이 자료형인 ArrayList 객체 생성
+    	ArrayList<FoodingDTO> aList = new ArrayList<>(); // FoodingBean이 자료형인 ArrayList 객체 생성
     	
     	try{
     		String sql = "select * from fooding";
     		pstmt = con.prepareStatement(sql);
     		rs = pstmt.executeQuery();
     		while(rs.next()) {
-    			FoodingBean fb = new FoodingBean(); // 빈 클래스 생성
+    			FoodingDTO fb = new FoodingDTO(); // 빈 클래스 생성
     			fb.setName(rs.getString(2));
     			fb.setId(rs.getString(3));
     			fb.setPw(rs.getString(4));
@@ -160,9 +160,9 @@ public class FoodingDAO {
     }
     
     // 한 사람의 모든 정보를 출력하는 메서드 작성
-    public FoodingBean foodingDetail(String id) {
+    public FoodingDTO foodingDetail(String id) {
     	getCon();
-    	FoodingBean fb = new FoodingBean();
+    	FoodingDTO fb = new FoodingDTO();
     	try {
     		String sql = "select * from fooding where id=?";
     		pstmt = con.prepareStatement(sql);
@@ -191,7 +191,7 @@ public class FoodingDAO {
     }
     
     // 이메일, 전화번호, 주소를 수정하는 메서드 작성
-    public void updateInfo(FoodingBean fbean) {
+    public void updateInfo(FoodingDTO fbean) {
     	getCon();
     	try {
     		String sql = "update fooding set email=?,tel=?,address=? where id=?";
@@ -235,9 +235,9 @@ public class FoodingDAO {
     	}
     }
     // fooding 테이블의 name, email, tel을 가지고 오는 메서드 작성
-    public FoodingBean foodingMemberJoin(String id) {
+    public FoodingDTO foodingMemberJoin(String id) {
     	getCon();
-    	FoodingBean fbean = new FoodingBean();
+    	FoodingDTO fbean = new FoodingDTO();
     	
     	try {
     		String sql = "select name,email,tel from fooding where id=?";

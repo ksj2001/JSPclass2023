@@ -13,7 +13,7 @@
 %>
 
 <!-- FoodingBean fbean = new FoodingBean(); -->
-<jsp:useBean id="fbean" class="fooding.FoodingBean">
+<jsp:useBean id="fbean" class="fooding.FoodingDTO">
 	<jsp:setProperty name="fbean" property="*" />
 </jsp:useBean>
   
