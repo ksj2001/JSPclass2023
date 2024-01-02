@@ -195,3 +195,13 @@
 12월 29, 2023 13:27:29.44 [14040:38872:1229/132729.434:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
 12월 29, 2023 15:43:50.70 [14040:38872:1229/154350.706:ERROR:device_event_log_impl.cc(192)] [15:43:50.706] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
 12월 29, 2023 16:27:58.10 [14040:38872:1229/162758.103:ERROR:device_event_log_impl.cc(192)] [16:27:58.102] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+12월 29, 2023 17:21:45.35 [14040:38872:1229/172145.353:ERROR:device_event_log_impl.cc(192)] [17:21:45.352] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+12월 29, 2023 22:00:09.91 [14040:38872:1229/220009.906:ERROR:CONSOLE(1)] "This document requires 'TrustedHTML' assignment.", source: chrome-extension://obclhmidkhbpfoeegemkbippgboekhmk/dist/ruffle.js?id=29909201189 (1)
+12월 29, 2023 22:00:09.92 [14040:38872:1229/220009.907:ERROR:CONSOLE(1)] "Uncaught TypeError: Failed to set the 'innerHTML' property on 'Element': This document requires 'TrustedHTML' assignment.", source: chrome-extension://obclhmidkhbpfoeegemkbippgboekhmk/dist/ruffle.js?id=29909201189 (1)
+
+1월 02, 2024 17:48:21.71 NEW SESSION
+1월 02, 2024 17:48:21.73 [3132:29240:0102/174821.715:ERROR:device_event_log_impl.cc(192)] [17:48:21.716] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+1월 02, 2024 18:05:28.34 [3132:29240:0102/180528.347:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 02, 2024 18:19:56.90 [3132:29240:0102/181956.902:ERROR:device_event_log_impl.cc(192)] [18:19:56.902] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+1월 02, 2024 18:28:27.94 [3132:29240:0102/182827.940:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 02, 2024 18:35:25.95 [3132:29240:0102/183525.955:ERROR:device_event_log_impl.cc(192)] [18:35:25.954] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)

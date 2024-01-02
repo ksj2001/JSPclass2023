@@ -67,6 +67,8 @@ public class BoardListCon extends HttpServlet {
 			}
 		}
 		
+		String msg = (String)request.getAttribute("msg");
+		
 		request.setAttribute("aList", aList);
 		request.setAttribute("number", number);
 		request.setAttribute("pageSize", pageSize);
