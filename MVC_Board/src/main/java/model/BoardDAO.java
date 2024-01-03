@@ -175,11 +175,15 @@ public class BoardDAO {
 		int ref = bdto.getRef();
 		int re_step = bdto.getRe_step();
 		int re_level = bdto.getRe_level();
+		
+		System.out.println(ref);
+		System.out.println(re_step);
+		System.out.println(re_level);
 		try {
-			String refSql = "update board set re_level=re_level+1 where ref=? and re_step=?";
+			String refSql = "update board set re_level=re_level+1 where ref=? and re_level > ?";
 			pstmt = con.prepareStatement(refSql);
 			pstmt.setInt(1, ref);
-			pstmt.setInt(2, re_step);
+			pstmt.setInt(2, re_level);
 			pstmt.executeUpdate();
 			
 			String sql = "insert into board values(null,?,?,?,?,current_Date(),?,?,?,0,?)";

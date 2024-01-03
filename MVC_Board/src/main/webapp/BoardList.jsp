@@ -25,7 +25,7 @@ table{
 </head>
 <body>
 
-<c:if test="${msg != null} && ${msg eq '0'}">
+<c:if test="${msg != null and msg eq '0'}">
 	<script type="text/javascript">
 		alert("비밀번호를 확인하세요.");
 	</script>

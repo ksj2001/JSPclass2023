@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+    <description></description>
+    <display-name>MemberLoginProc</display-name>
+    <servlet-name>MemberLoginProc</servlet-name>
+    <servlet-class>control.MemberLoginProc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberLoginProc</servlet-name>
+    <url-pattern>/MemberLoginProc</url-pattern>
+  </servlet-mapping>
+  <display-name>MVC_RentCarCart</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>MemberLogoutProc</display-name>
+    <servlet-name>MemberLogoutProc</servlet-name>
+    <servlet-class>control.MemberLogoutProc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberLogoutProc</servlet-name>
+    <url-pattern>/MemberLogoutProc</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RentListPro</display-name>
+    <servlet-name>RentListPro</servlet-name>
+    <servlet-class>control.RentListPro</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RentListPro</servlet-name>
+    <url-pattern>/RentListPro</url-pattern>
+  </servlet-mapping>
+</web-app>
