@@ -17,12 +17,15 @@
     <fullyQualifiedTypeName name="model.MemberDTO"/>
     <fullyQualifiedTypeName name="fooding.FoodingDTO"/>
     <fullyQualifiedTypeName name="fooding.FoodingDAO"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="model.BoardDTO"/>
     <fullyQualifiedTypeName name="model.BoardDAO"/>
-    <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
-    <fullyQualifiedTypeName name="java.sql.SQLException"/>
-    <fullyQualifiedTypeName name="model.RentDAO"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="model.RentDTO"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
+    <fullyQualifiedTypeName name="model.RentDAO"/>
+    <fullyQualifiedTypeName name="model.JangDAO"/>
+    <fullyQualifiedTypeName name="model.JangDTO"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

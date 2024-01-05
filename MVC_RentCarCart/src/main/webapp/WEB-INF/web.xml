@@ -39,4 +39,54 @@
     <servlet-name>RentListPro</servlet-name>
     <url-pattern>/RentListPro</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RentInfo</display-name>
+    <servlet-name>RentInfo</servlet-name>
+    <servlet-class>control.RentInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RentInfo</servlet-name>
+    <url-pattern>/RentInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>JangProc</display-name>
+    <servlet-name>JangProc</servlet-name>
+    <servlet-class>control.JangProc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JangProc</servlet-name>
+    <url-pattern>/JangProc</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RentUpdate</display-name>
+    <servlet-name>RentUpdate</servlet-name>
+    <servlet-class>control.RentUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RentUpdate</servlet-name>
+    <url-pattern>/RentUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RentDeleteJang</display-name>
+    <servlet-name>RentDeleteJang</servlet-name>
+    <servlet-class>control.RentDeleteJang</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RentDeleteJang</servlet-name>
+    <url-pattern>/RentDeleteJang</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderListPro</display-name>
+    <servlet-name>OrderListPro</servlet-name>
+    <servlet-class>control.OrderListPro</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderListPro</servlet-name>
+    <url-pattern>/OrderListPro</url-pattern>
+  </servlet-mapping>
 </web-app>

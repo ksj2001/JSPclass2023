@@ -7,9 +7,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.rentcontainer{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+h2{
+	text-align: center;
+	font-size: 28px;
+	font-weight: 600;
+	margin: 15px 0;
+}
+.rentcontainerWrap{
+	width: 800px;
+	margin: 20px 0;
+}
+</style>
 </head>
 <body>
-	<div class="rentcontainer">
+<div class="rentcontainer">
+	<div class="rentcontainerWrap">
     	<h2>모든 상품 보기</h2>
     	<table width="800" border="1" class="renttable">
     		<tr height="40">
@@ -33,5 +51,6 @@
     		</c:forEach>
     	</table>
 	</div>
+</div>
 </body>
 </html>

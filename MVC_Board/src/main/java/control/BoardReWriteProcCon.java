@@ -39,7 +39,10 @@ public class BoardReWriteProcCon extends HttpServlet {
 		
 		bdao.reInsertBoard(bdto);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("BoardListCon.do");
-		rd.forward(request, response);
+	//	RequestDispatcher rd = request.getRequestDispatcher("BoardListCon.do");
+	//	rd.forward(request, response);
+	//	forward를 사용할 경우 주소 표시줄에 있는 위치로 새로고침이 무한정 이루어지므로 insert를 사용하기에는 부적합하다.
+	//	insert할 경우에는 sendRedirect로 보내서 통신을 종료시킨다. 
+		response.sendRedirect("BoardListCon.do");
 	}
 }

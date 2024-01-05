@@ -14,5 +14,12 @@
 			location.href = "RentCarMain.jsp";
 		</script>
 	</c:if>
+	
+	<c:if test="${msgChk != null}">
+		<script type="text/javascript">
+			alert("${msgChk}");
+			location.href = "JangProc.do";
+		</script>
+	</c:if>
 </body>
 </html>

@@ -57,7 +57,7 @@ public class RentDAO {
     	getCon();
     	ArrayList<RentDTO> a = new ArrayList<>();
     	try {
-    		String sql = "select * from rentcar";
+    		String sql = "select * from rentcar order by no desc";
     		pstmt = con.prepareStatement(sql);
     		rs = pstmt.executeQuery();
     		while(rs.next()) {
@@ -84,5 +84,38 @@ public class RentDAO {
     		}
     	}
     	return a;
+    }
+    
+    // 하나의 자동차 정보를 가져오는 메서드
+    public RentDTO getOneCar(int no) {
+    	getCon();
+    	RentDTO rdto = new RentDTO();
+    	try {
+    		String sql = "select * from rentcar where no=?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setInt(1, no);
+    		rs = pstmt.executeQuery();
+    		if(rs.next()) {
+    			rdto.setNo(rs.getInt(1));
+    			rdto.setName(rs.getString(2));
+    			rdto.setCategory(rs.getInt(3));
+    			rdto.setPrice(rs.getInt(4));
+    			rdto.setUsepeople(rs.getInt(5));
+    			rdto.setCompany(rs.getString(6));
+    			rdto.setImg(rs.getString(7));
+    			rdto.setInfo(rs.getString(8));
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	return rdto;
     }
 }
