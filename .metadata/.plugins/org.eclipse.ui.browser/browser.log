@@ -213,3 +213,11 @@
 1월 05, 2024 12:48:11.31 [20972:13408:0105/124811.301:ERROR:device_event_log_impl.cc(192)] [12:48:11.300] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
 1월 05, 2024 13:47:56.29 [20972:13408:0105/134756.294:ERROR:interface_endpoint_client.cc(702)] Message 5 rejected by interface blink.mojom.WidgetHost
 1월 05, 2024 15:51:28.70 [20972:16864:0105/155128.704:ERROR:connection_factory_impl.cc(471)] ConnectionHandler failed with net error: -2
+1월 05, 2024 17:11:20.28 [20972:13408:0105/171120.284:ERROR:device_event_log_impl.cc(192)] [17:11:20.285] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+1월 09, 2024 14:49:46.88 NEW SESSION
+1월 09, 2024 14:49:46.89 [4300:17168:0109/144946.883:ERROR:device_event_log_impl.cc(192)] [14:49:46.882] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+1월 09, 2024 16:26:15.38 NEW SESSION
+1월 09, 2024 16:26:15.39 [17844:25592:0109/162615.387:ERROR:CONSOLE(1)] "This document requires 'TrustedHTML' assignment.", source: chrome-extension://obclhmidkhbpfoeegemkbippgboekhmk/dist/ruffle.js?id=27378565726 (1)
+1월 09, 2024 16:26:15.39 [17844:25592:0109/162615.388:ERROR:CONSOLE(1)] "Uncaught TypeError: Failed to set the 'innerHTML' property on 'Element': This document requires 'TrustedHTML' assignment.", source: chrome-extension://obclhmidkhbpfoeegemkbippgboekhmk/dist/ruffle.js?id=27378565726 (1)

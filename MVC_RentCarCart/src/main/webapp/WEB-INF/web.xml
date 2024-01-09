@@ -89,4 +89,14 @@
     <servlet-name>OrderListPro</servlet-name>
     <url-pattern>/OrderListPro</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ToOrderListProc</display-name>
+    <servlet-name>ToOrderListProc</servlet-name>
+    <servlet-class>control.ToOrderListProc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ToOrderListProc</servlet-name>
+    <url-pattern>/ToOrderListProc</url-pattern>
+  </servlet-mapping>
 </web-app>
