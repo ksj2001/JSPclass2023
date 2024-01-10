@@ -221,3 +221,7 @@
 1월 09, 2024 16:26:15.38 NEW SESSION
 1월 09, 2024 16:26:15.39 [17844:25592:0109/162615.387:ERROR:CONSOLE(1)] "This document requires 'TrustedHTML' assignment.", source: chrome-extension://obclhmidkhbpfoeegemkbippgboekhmk/dist/ruffle.js?id=27378565726 (1)
 1월 09, 2024 16:26:15.39 [17844:25592:0109/162615.388:ERROR:CONSOLE(1)] "Uncaught TypeError: Failed to set the 'innerHTML' property on 'Element': This document requires 'TrustedHTML' assignment.", source: chrome-extension://obclhmidkhbpfoeegemkbippgboekhmk/dist/ruffle.js?id=27378565726 (1)
+
+1월 10, 2024 16:18:27.41 NEW SESSION
+1월 10, 2024 16:18:27.42 [10056:24612:0110/161827.409:ERROR:CONSOLE(1)] "This document requires 'TrustedHTML' assignment.", source: chrome-extension://obclhmidkhbpfoeegemkbippgboekhmk/dist/ruffle.js?id=52780497162 (1)
+1월 10, 2024 16:18:27.42 [10056:24612:0110/161827.409:ERROR:CONSOLE(1)] "Uncaught TypeError: Failed to set the 'innerHTML' property on 'Element': This document requires 'TrustedHTML' assignment.", source: chrome-extension://obclhmidkhbpfoeegemkbippgboekhmk/dist/ruffle.js?id=52780497162 (1)

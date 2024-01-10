@@ -72,45 +72,90 @@
 					<tr height="60">
 						<td align="center" colspan="6" id="rent" align="center">배송지 정보</td>
 					</tr>
-					<tr height="40">
-						<td width="100" align="center">이름</td>
-						<td width="300" colspan="5" align="left" class="info">
-							<input type="text" name="buy_name" id="buy_name">
-						</td>
-					</tr>
-					<tr height="40">
-						<td width="100" align="center">연락처</td>
-						<td width="300" colspan="5" align="left" class="info">
-							<input type="text" name="phone01" id="phone01" value="010">-
-							<input type="text" name="phone02" id="phone02" maxlength="4">-
-							<input type="text" name="phone03" id="phone03" maxlength="4">
-						</td>
-					</tr>
-					<tr height="40">
-						<td width="100" align="center">이메일</td>
-						<td width="300" colspan="5" align="left" class="info">
-							<input type="email" name="email" id="email">
-						</td>
-					</tr>
-					<tr height="40">
-						<td width="100" align="center">우편번호</td>
-						<td width="300" colspan="5" align="left" class="info">
-							<input type="text" name="postcode" id="postcode" placeholder="우편번호">&nbsp;
-							<input type="button" onclick="DaumPostCode()" class="dup" value="우편번호 찾기">
-						</td>
-					</tr>
-					<tr height="40">
-						<td width="100" align="center">주소</td>
-						<td width="300" colspan="5" align="left" class="info">
-							<input type="text" name="roadAddress" id="roadAddress" placeholder="도로명주소">
-						</td>
-					</tr>
-					<tr height="40">
-						<td width="100" align="center">상세주소</td>
-						<td width="300" colspan="5" align="left" class="info">
-							<input type="text" name="detailAddress" id="detailAddress" placeholder="상세주소">
-						</td>
-					</tr>
+					<c:choose>
+						<c:when test="${loginId eq bdto.id }">
+						   <tr height="40">
+								<td width="100" align="center">이름</td>
+								<td width="300" colspan="5" align="left" class="info">
+									<input type="text" name="buy_name" id="buy_name" value="${bdto.buy_name}">
+								</td>
+							</tr>
+							<tr height="40">
+								<td width="100" align="center">연락처</td>
+								<td width="300" colspan="5" align="left" class="info">
+									<input type="text" name="phone01" id="phone01" value="010">-
+									<input type="text" name="phone02" id="phone02" maxlength="4" value="${phone02}">-
+									<input type="text" name="phone03" id="phone03" maxlength="4" value="${phone03}">
+								</td>
+							</tr>
+							<tr height="40">
+								<td width="100" align="center">이메일</td>
+								<td width="300" colspan="5" align="left" class="info">
+									<input type="email" name="email" id="email" value="${bdto.buy_email}">
+								</td>
+							</tr>
+							<tr height="40">
+								<td width="100" align="center">우편번호</td>
+								<td width="300" colspan="5" align="left" class="info">
+									<input type="text" name="postcode" id="postcode" placeholder="우편번호" value="${bdto.buy_postcode}">&nbsp;
+									<input type="button" onclick="DaumPostCode()" class="dup" value="우편번호 찾기">
+								</td>
+							</tr>
+							<tr height="40">
+								<td width="100" align="center">주소</td>
+								<td width="300" colspan="5" align="left" class="info">
+									<input type="text" name="roadAddress" id="roadAddress" placeholder="도로명주소" value="${roadAddress}">
+								</td>
+							</tr>
+							<tr height="40">
+								<td width="100" align="center">상세주소</td>
+								<td width="300" colspan="5" align="left" class="info">
+									<input type="text" name="detailAddress" id="detailAddress" placeholder="상세주소" value="${detailAddress}">
+								</td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<tr height="40">
+								<td width="100" align="center">이름</td>
+								<td width="300" colspan="5" align="left" class="info">
+									<input type="text" name="buy_name" id="buy_name">
+								</td>
+							</tr>
+							<tr height="40">
+								<td width="100" align="center">연락처</td>
+								<td width="300" colspan="5" align="left" class="info">
+									<input type="text" name="phone01" id="phone01" value="010">-
+									<input type="text" name="phone02" id="phone02" maxlength="4">-
+									<input type="text" name="phone03" id="phone03" maxlength="4">
+								</td>
+							</tr>
+							<tr height="40">
+								<td width="100" align="center">이메일</td>
+								<td width="300" colspan="5" align="left" class="info">
+									<input type="email" name="email" id="email">
+								</td>
+							</tr>
+							<tr height="40">
+								<td width="100" align="center">우편번호</td>
+								<td width="300" colspan="5" align="left" class="info">
+									<input type="text" name="postcode" id="postcode" placeholder="우편번호">&nbsp;
+									<input type="button" onclick="DaumPostCode()" class="dup" value="우편번호 찾기">
+								</td>
+							</tr>
+							<tr height="40">
+								<td width="100" align="center">주소</td>
+								<td width="300" colspan="5" align="left" class="info">
+									<input type="text" name="roadAddress" id="roadAddress" placeholder="도로명주소">
+								</td>
+							</tr>
+							<tr height="40">
+								<td width="100" align="center">상세주소</td>
+								<td width="300" colspan="5" align="left" class="info">
+									<input type="text" name="detailAddress" id="detailAddress" placeholder="상세주소">
+								</td>
+							</tr>
+						</c:otherwise>
+					</c:choose>	
 					<tr height="40">
 						<td colspan="6" align="center">
 							<input type="button" class="btn" value="이전" onclick="location.href='JangProc.do'">

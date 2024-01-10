@@ -19,7 +19,6 @@
     <fullyQualifiedTypeName name="fooding.FoodingDAO"/>
     <fullyQualifiedTypeName name="model.BoardDTO"/>
     <fullyQualifiedTypeName name="model.BoardDAO"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="model.RentDTO"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="model.RentDAO"/>
@@ -28,7 +27,8 @@
     <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="model.JangDAO"/>
     <fullyQualifiedTypeName name="model.ProductDTO"/>
-    <fullyQualifiedTypeName name="model.BuyDTO"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="model.BuyDTO"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>

@@ -74,6 +74,8 @@ h2{
 <div class="jangcontainer">
 	<div class="jangcontainerWrap">
     	<h2>장바구니</h2>
+    	<c:choose>
+    	<c:when test="${not empty jaList }">
     	<table width="800" border="1" class="renttable">
     		<tr height="40">
     			<td align="center" width="50">선택</td>
@@ -104,14 +106,21 @@ h2{
     			</form>
     			<c:set var="index" value="${index=index+1}"/>
     		</c:forEach>
+    	
     		<tr height="40">
     			<td align="center" colspan="6">
     				<input type="button" value="선택삭제" class="bottombtn" onclick="fn_delete()">
+    				<input type="button" value="전체삭제" class="bottombtn" onclick="fn_allDelete()">
     				<input type="button" value="목록보기" class="bottombtn" onclick="location.href='RentListPro.do'">
     				<input type="button" value="주문하기" class="bottombtn" onclick="OrderList()">
     			</td>
     		</tr>
     	</table>
+    	</c:when>
+    	<c:otherwise>
+    			<div>장바구니가 비어있습니다.</div>
+    	</c:otherwise>
+    </c:choose>	
 	</div>
 </div>
 <script type="text/javascript">
@@ -127,7 +136,13 @@ h2{
  	
     // 자바스크립트에서 EL로 받아온 값을 변수로 담는 방법
     let loginId = "<c:out value='${loginId}' />";
-    
+    function fn_allDelete(){	
+		for(let i=0;i<chk_list.length;i++){
+    			param = param + chk_list[i].value + " ";
+    	}
+    	
+    	location.href = 'RentDeleteJang.do?chk=' + param;
+    }
     
     function fn_delete(){
     	

@@ -65,6 +65,7 @@ public class ToOrderListProc extends HttpServlet {
 			pdto.setId(loginId);
 			arr.add(pdto);
 			jdao.productInsert(pdto);
+			jdao.deleteJang2(pdto.getNo());
 		}
 		
 		// order_address에 insert

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.BuyDTO;
 import model.JangDAO;
 import model.JangDTO;
 
@@ -46,6 +47,25 @@ public class OrderListPro extends HttpServlet {
 			request.setAttribute("msgChk", "상품을 선택하세요");
 			RequestDispatcher rd = request.getRequestDispatcher("Error.jsp");
 			rd.forward(request, response);
+		}
+		
+		// 물건을 구매한 적이 있는 회원의 배송지 정보를 떠넘기는 코드
+		BuyDTO bdto = new BuyDTO();
+		bdto = jdao.getOneAddress(loginId);
+		// 이미 물건을 구매한 회원의 로그인 아이디와 order_address의 아이디를 비교한다.
+		if(loginId.equals(bdto.getId())) {
+			String phone02 = bdto.getBuy_phone().substring(4, 8);
+			String phone03 = bdto.getBuy_phone().substring(9, 13);
+			
+			int stringNum = bdto.getBuy_roadaddress().indexOf("   ");
+			String roadAddress = bdto.getBuy_roadaddress().substring(0, stringNum);
+			String detailAddress = bdto.getBuy_roadaddress().substring(stringNum+3);
+			
+			request.setAttribute("bdto", bdto);
+			request.setAttribute("phone02", phone02);
+			request.setAttribute("phone03", phone03);
+			request.setAttribute("roadAddress", roadAddress);
+			request.setAttribute("detailAddress", detailAddress);
 		}
 		
 		request.setAttribute("aList", aList);

@@ -48,11 +48,28 @@
 	font-size: 15px;
 	font-weight: 600;
 }
+.headerContainerWrap .navi .menu span.add{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+    margin: 2px;
+	border-radius: 50%;
+	font-size: 10px;
+	font-weight: 600;
+	color: #fff;
+	background-color: #000;
+	line-height: 18px;
+}
+.headerContainerWrap .navi .menu span.remove{
+	display: none;
+}
 </style>
 </head>
 <body>
+ 
 	<div class="headerContainer">
 		<div class="headerContainerWrap">
+		 
 			<div class="logo">
 				<a href="RentCarMain.jsp"><img alt="" src="img/sk_logo.png"></a>
 			<c:choose>
@@ -71,10 +88,21 @@
 				<div class="menu"><a href="RentListPro.do">예약하기</a></div>
 				<div class="menu"><a href="RentCarMain.jsp?sectionChange=CarViewReserve.jsp">예약확인</a></div>
 				<div class="menu"><a href="#">게시판</a></div>
-				<div class="menu"><a href="JangProc.do">장바구니</a></div>
+				<div class="menu"><a href="JangProc.do">장바구니</a><span class="jangCnt">${rentJangCount}</span></div>
 				<div class="menu"><a href="#">고객센터</a></div>
 			</div>
 		</div>
 	</div>
+	
+<script type="text/javascript">
+	let jangCnt = document.querySelector(".jangCnt");
+	let count = "<c:out value='${rentJangCount}'/>";
+	
+	if( parseInt(count) === 0){
+		jangCnt.classList.add('remove');
+	}else{
+		jangCnt.classList.add('add');
+	}
+</script>
 </body>
 </html>

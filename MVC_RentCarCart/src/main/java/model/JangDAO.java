@@ -258,7 +258,7 @@ public class JangDAO {
     	}
     }
     
- // order_address에 insert하는 메서드
+    // order_address에 insert하는 메서드
     public void buyInsert(BuyDTO bdto) {
     	getCon();
     	try {
@@ -284,4 +284,87 @@ public class JangDAO {
     		}
     	}
     }
+    
+    // 주문이 완료된 상품을 장바구니에서 지우는 메서드
+    public void deleteJang2(int no){
+    	getCon();
+    	try {
+    		String sql = "delete from rentjang where no=?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setInt(1, no);
+    		pstmt.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    }
+    
+    // 구매한 정보가 존재하는 한 사람의 배송지 정보를 return하는 메서드
+    public BuyDTO getOneAddress(String id) {
+    	getCon();
+    	BuyDTO bdto = new BuyDTO();
+    	try {
+    		String sql = "select * from order_address where id=? order by order_date desc,order_no desc";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setString(1, id);
+    		rs = pstmt.executeQuery();
+    		if(rs.next()) {
+    			bdto.setOrder_date(rs.getString(1));
+    			bdto.setOrder_no(rs.getInt(2));
+    			bdto.setBuy_name(rs.getString(3));
+    			bdto.setBuy_phone(rs.getString(4));
+    			bdto.setBuy_email(rs.getString(5));
+    			bdto.setBuy_postcode(rs.getInt(6));
+    			bdto.setBuy_roadaddress(rs.getString(7));
+    			bdto.setId(rs.getString(8));
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	return bdto;
+    }
+    
+    // rentjang의 전체 레코드 개수를 return하는 메서드
+    public int getAllJangCount() {
+    	getCon();
+    	int count = 0;
+    	
+    	try {
+    		String sql = "select count(*) from rentjang";
+    		pstmt = con.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+    		if(rs.next()) {
+    			count = rs.getInt(1);
+    		}
+    		
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+    		try {
+    			if(con!=null) con.close();
+    			if(pstmt!=null) pstmt.close();
+    			if(rs!=null) rs.close();
+    		}catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	return count;
+    }
 }
+
+
